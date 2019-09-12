@@ -1,3 +1,4 @@
+event_inherited()
 #region Controls
 
 c_left = vk_left

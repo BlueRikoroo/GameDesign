@@ -16,12 +16,15 @@ obj1.c_right = ord("D")
 obj1.c_jump = ord("W")
 obj1.image_xscale = 2
 obj1.image_yscale = 3
+obj1.collision_type = 1
+obj1.attached_obj = obj2
 
 obj2.c_left = ord("J")
 obj2.c_right = ord("L")
 obj2.c_jump = ord("I")
 obj2.image_xscale = 1.5
 obj2.image_yscale = 2
+obj2.collision_type = 2
 
 rope.obj1 = obj1
 rope.obj2 = obj2

@@ -1,43 +1,32 @@
+#region Collisions
+switch(collision_type){
+case 0: #region Normal Collisions
 
-
-#region Gravity
-
+//Gravity
 vspeed += 0.6
 
-#endregion
-#region Collisions
+vertical_collision()
+horizontal_collision()
 
-#region Verticle Collision
+break #endregion
+case 1: #region Rope Collision
 
-if vspeed != 0 and place_meeting(x,y+vspeed,par_wall){
-	//Determine which direction the entity is moving (positive / negative)
-	var dir = sign(vspeed)
-	
-	//Move the entity to the wall
-	while(!place_meeting(x,y+dir,par_wall)){
-		y+=dir	
-	}
-	
-	//Stop moving
-	vspeed = 0
+//Gravity
+vspeed += 0.6
+with(attached_obj)
+	vspeed += 0.6
+
+vertical_collision()
+horizontal_collision()
+
+with(attached_obj){
+	vertical_collision()
+	horizontal_collision()
 }
 
-#endregion
-#region Horizontal Collision
-
-if hspeed != 0 and place_meeting(x+hspeed,y,par_wall){
-	//Determine which direction the entity is moving (positive / negative)
-	var dir = sign(hspeed)
-	
-	//Move the entity to the wall
-	while(!place_meeting(x+dir,y,par_wall)){
-		x+=dir	
-	}
-	
-	//Stop moving
-	hspeed = 0
+break #endregion
 }
 
-#endregion
+
 
 #endregion
