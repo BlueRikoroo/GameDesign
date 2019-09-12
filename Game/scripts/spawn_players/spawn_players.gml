@@ -8,7 +8,7 @@
 // Returns [player1, player2, rope]
 
 var obj1 = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
-var obj2 = instance_create_layer(argument2, argument3, get_layer_depth(0), obj_player)
+var obj2 = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var rope = instance_create_layer(0, 0, get_layer_depth(1), obj_rope)
 
 obj1.c_left = ord("A")
@@ -25,6 +25,6 @@ obj2.image_yscale = 2
 
 rope.obj1 = obj1
 rope.obj2 = obj2
-rope.maxLength = argument4
+rope.maxLength = argument2
 
 return [obj1, obj2, rope]
