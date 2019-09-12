@@ -1,0 +1,1 @@
+ds_map_clear(global.layerMap) //Must clear it as all new rooms have differing layers.

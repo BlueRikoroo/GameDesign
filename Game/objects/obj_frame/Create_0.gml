@@ -1,0 +1,1 @@
+global.layerMap = ds_map_create()
