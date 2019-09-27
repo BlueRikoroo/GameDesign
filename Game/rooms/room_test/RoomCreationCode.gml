@@ -1,1 +1,1 @@
-spawn_players(200, 770, 100)
+spawn_players(200, 770, 200)

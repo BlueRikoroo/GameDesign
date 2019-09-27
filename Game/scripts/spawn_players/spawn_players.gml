@@ -17,6 +17,7 @@ obj1.image_xscale = 2
 obj1.image_yscale = 3
 obj1.collision_type = 1
 obj1.attached_obj = obj2
+obj1.rope_obj = rope
 
 obj2.c_left = ord("J")
 obj2.c_right = ord("L")

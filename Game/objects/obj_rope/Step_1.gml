@@ -16,9 +16,8 @@ if instance_exists(obj2){
 #endregion
 #region Limit Rope
 
-var length = point_distance(x1,y1, x2,y2)
+length = point_distance(x1,y1, x2,y2)
 
-if length > maxLength
-	show_debug_message("Put Physics Here")
+maxReached = length > maxLength
 	
 #endregion
