@@ -1,4 +1,20 @@
 var grav = 0.6
+#region Gravity
+
+if collision_type == 0{ #region Normal
+
+	vspeed += grav
+
+} #endregion
+else if collision_type == 1{ #region Rope
+
+	vspeed += grav
+	with(attached_obj)
+		vspeed += grav
+
+}#endregion
+
+#endregion
 #region Rope Collision
 
 if collision_type == 1 and rope_obj.maxReached{
@@ -15,67 +31,49 @@ if collision_type == 1 and rope_obj.maxReached{
 	
 	var distNext = point_distance(x1next,y1next,x2next,y2next)
 	
-	var systHSpeed = hspeed+attached_obj.hspeed
-	var systVSpeed = vspeed+attached_obj.vspeed
 	
-	var dirDiff1 = dirDiff(direction, dir)
-	var dirDiff2 = dirDiff(attached_obj.direction, dir + 180)
+	if distNext >= dist{
+		
+		var pow = abs(lengthdir_x(speed, -(dir+180)+direction))
+		hspeed += lengthdir_x(pow, dir)
+		vspeed += lengthdir_y(pow, dir)
 	
-	if distNext > dist{
-		var addedForce = 1.2
+		pow = abs(lengthdir_x(attached_obj.speed, -(dir)+attached_obj.direction))
+		attached_obj.hspeed += lengthdir_x(pow, dir+180)
+		attached_obj.vspeed += lengthdir_y(pow, dir+180)
 		
-		var ang = degtorad(dir)
-		var oldHSpeed = hspeed
-		var oldVSpeed = vspeed
-		hspeed = systHSpeed * 0.5 + addedForce*cos(ang)
-		vspeed = systVSpeed * 0.5 - addedForce*sin(ang)
-		
-		//ang += sign(dirDiff1)*degtorad(-90)
-		//hspeed += oldHSpeed * cos(ang)
-		//vspeed += oldVSpeed * -sin(ang)
-	
-		ang = degtorad(dir+180)
-		oldHSpeed = attached_obj.hspeed
-		oldVSpeed = attached_obj.vspeed
-		attached_obj.hspeed = systHSpeed * 0.5 + addedForce*cos(ang)
-		attached_obj.vspeed = systVSpeed * 0.5 - addedForce*sin(ang)
-		
-		//ang += sign(dirDiff2)*degtorad(-90)
-		//attached_obj.hspeed += oldHSpeed * cos(ang)
-		//attached_obj.vspeed += oldVSpeed * -sin(ang)
+		if (rope_obj.length/rope_obj.maxLength > 1.1){
+			var pullback = rope_obj.length/rope_obj.maxLength
+			hspeed += lengthdir_x(pullback, dir)
+			vspeed += lengthdir_y(pullback, dir)
+			attached_obj.hspeed += lengthdir_x(pullback, dir+180)
+			attached_obj.vspeed += lengthdir_y(pullback, dir+180)
+		}
 	}
 }
 
 #endregion
 #region Collisions
-switch(collision_type){
-case 0: #region Normal Collisions
 
-//Gravity
-vspeed += grav
 
-vertical_collision()
-horizontal_collision()
+if collision_type == 0{ #region Normal Collisions
 
-break #endregion
-case 1: #region Rope Collision
-
-//Gravity
-vspeed += grav
-with(attached_obj)
-	vspeed += grav
-
-vertical_collision()
-horizontal_collision()
-
-with(attached_obj){
 	vertical_collision()
 	horizontal_collision()
-}
 
-break #endregion
-}
+} #endregion
+else if collision_type == 1{ #region Rope Collision
 
 
+
+	vertical_collision()
+	horizontal_collision()
+
+	with(attached_obj){
+		vertical_collision()
+		horizontal_collision()
+	}
+
+} #endregion
 
 #endregion
