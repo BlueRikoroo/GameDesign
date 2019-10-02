@@ -1,8 +1,6 @@
 /// @description Spawns both players in the map
 /// @param P1x
 /// @param P1y
-/// @param P2x
-/// @param P2y
 /// @param ropeLength
 
 // Returns [player1, player2, rope]
