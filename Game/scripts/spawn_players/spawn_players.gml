@@ -25,6 +25,7 @@ obj2.c_jump = ord("I")
 obj2.image_xscale = 1.5
 obj2.image_yscale = 2
 obj2.collision_type = 2
+obj2.rope_obj = rope
 
 rope.obj1 = obj1
 rope.obj2 = obj2
