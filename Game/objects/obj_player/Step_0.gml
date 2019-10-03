@@ -1,3 +1,10 @@
+var maxRope = false
+for(var i = 0; i < array_length_1d(rope_obj); i++){
+	if instance_exists(rope_obj[i]) and rope_obj[i].maxReached{
+		maxRope = true
+		break
+	}
+}
 
 var onGround = place_meeting(x,y+1,par_wall)
 var accelVal = 0.3
@@ -21,7 +28,7 @@ else if keyboard_check(c_left){
 		hspeed = max(hspeed - accelVal, -5)
 	else
 		hspeed -= accelVal*0.5
-}else if (onGround or !instance_exists(rope_obj) or !rope_obj.maxReached){
+}else if (onGround or !maxRope){
 	if abs(hspeed) < 1
 		hspeed = 0
 	else
