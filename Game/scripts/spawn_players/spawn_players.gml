@@ -16,6 +16,9 @@ obj1.image_xscale = 2
 obj1.image_yscale = 3
 obj1.attached_obj[0] = obj2
 obj1.rope_obj[0] = rope
+obj1.groundSpeed = 4
+obj1.jumpSpeed = 17
+obj1.accelVal = 0.3
 
 obj2.c_left = ord("J")
 obj2.c_right = ord("L")
@@ -24,6 +27,9 @@ obj2.image_xscale = 1.5
 obj2.image_yscale = 2
 obj2.attached_obj[0] = obj1
 obj2.rope_obj[0] = rope
+obj2.groundSpeed = 7
+obj2.jumpSpeed = 20
+obj2.accelVal = 0.5
 
 rope.obj1 = obj1
 rope.obj2 = obj2

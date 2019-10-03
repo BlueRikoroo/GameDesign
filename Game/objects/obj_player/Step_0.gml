@@ -7,11 +7,10 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 }
 
 var onGround = place_meeting(x,y+1,par_wall)
-var accelVal = 0.3
 #region Jump
 
 if keyboard_check_pressed(c_jump) and onGround{	
-	vspeed -= 20
+	vspeed -= jumpSpeed
 }
 
 #endregion
@@ -19,13 +18,13 @@ if keyboard_check_pressed(c_jump) and onGround{
 
 if keyboard_check(c_right){
 	if onGround
-		hspeed = min(hspeed + accelVal, 5)
+		hspeed = min(hspeed + accelVal, groundSpeed)
 	else
 		hspeed += accelVal*0.5
 }
 else if keyboard_check(c_left){
 	if onGround
-		hspeed = max(hspeed - accelVal, -5)
+		hspeed = max(hspeed - accelVal, -groundSpeed)
 	else
 		hspeed -= accelVal*0.5
 }else if (onGround or !maxRope){
