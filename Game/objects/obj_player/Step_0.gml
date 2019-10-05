@@ -19,6 +19,14 @@ else
 
 #endregion
 
+
+
 // Inherit the parent event
 event_inherited();
 
+if (place_meeting(x,y,obj_Handle)){
+	if keyboard_check(c_space){
+		hspeed = 0	
+		vspeed = 0
+	}
+}
