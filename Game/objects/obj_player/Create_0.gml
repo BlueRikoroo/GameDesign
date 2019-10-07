@@ -7,4 +7,10 @@ c_jump = vk_up
 c_space = vk_space
 
 #endregion
+#region Movement 
 
+groundSpeed = 5
+jumpSpeed = 20
+accelVal = 0.3
+
+#endregion
