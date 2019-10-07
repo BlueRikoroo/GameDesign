@@ -30,3 +30,16 @@ if (place_meeting(x,y,obj_Handle)){
 		vspeed = 0
 	}
 }
+
+if (place_meeting(x+1,y,obj_HWall)){
+	
+	if keyboard_check(c_right){
+		hspeed = obj_HWall.hspeed
+		obj_HWall.hspeed += .25
+	}
+}
+if (!place_meeting(x+1,y,obj_HWall)){
+	if (obj_HWall.hspeed > 0){
+		obj_HWall.hspeed = 0
+	}
+}
