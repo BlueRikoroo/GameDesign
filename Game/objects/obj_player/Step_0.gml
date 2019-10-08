@@ -6,7 +6,7 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	}
 }
 
-var onGround = place_meeting(x,y+1,par_wall) or (vspeed > 0 and place_meeting(x,y+1,obj_crate))
+var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and place_meeting(x,y+1,obj_crate))
 
 #region Jump
 
