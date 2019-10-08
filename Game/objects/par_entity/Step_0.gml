@@ -10,9 +10,9 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	if rope_obj[i] != noone and rope_obj[0].maxReached{
 		var x2 = attached_obj[i].x
 		var y2 = attached_obj[i].y
-	
-		var dir = point_direction(x,y,x2,y2)
-	
+    
+    var dir = point_direction(x,y,x2,y2)
+    
 		if abs(dirDiff(direction,dir)) >= 90{
 		
 			var pow = abs(lengthdir_x(speed, -(dir+180)+direction))
@@ -35,3 +35,4 @@ vertical_collision()
 horizontal_collision()
 
 #endregion
+

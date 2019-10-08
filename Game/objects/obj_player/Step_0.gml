@@ -7,6 +7,7 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 }
 
 var onGround = place_meeting(x,y+1,par_wall) or place_meeting(x,y+1,obj_crate)
+
 #region Jump
 
 if keyboard_check_pressed(c_jump) and onGround{	
@@ -39,6 +40,33 @@ else if keyboard_check(c_left){
 
 // Inherit the parent event
 event_inherited();
+
+if (onGround and place_meeting(x,y,obj_Handle)){
+	if keyboard_check(c_grab){
+		hspeed = 0	
+		vspeed = 0
+	}
+}
+
+if canPushWall{
+	var pushSpeed = 1
+	if keyboard_check(c_right){
+		with (instance_place(x+pushSpeed,y,obj_HWall)){
+			if (!place_meeting(x+pushSpeed,y,par_wall)){
+				hspeed = pushSpeed
+				other.hspeed = pushSpeed
+			}
+		}
+	}
+	if keyboard_check(c_left){
+		with (instance_place(x-pushSpeed,y,obj_HWall)){
+			if (!place_meeting(x-pushSpeed,y,par_wall)){
+				hspeed = -pushSpeed
+				other.hspeed = -pushSpeed
+			}
+		}
+	}
+}
 
 if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 	var obj = instance_place(x, y+vspeed, obj_crate)
