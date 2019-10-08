@@ -19,6 +19,7 @@ obj1.rope_obj[0] = rope
 obj1.groundSpeed = 4
 obj1.jumpSpeed = 17
 obj1.accelVal = 0.3
+obj1.canPushWall = true
 
 obj2.c_left = ord("J")
 obj2.c_right = ord("L")

@@ -14,3 +14,4 @@ jumpSpeed = 20
 accelVal = 0.3
 
 #endregion
+canPushWall = false

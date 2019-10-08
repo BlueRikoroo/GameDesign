@@ -46,15 +46,22 @@ if (place_meeting(x,y,obj_Handle)){
 	}
 }
 
-if (place_meeting(x+1,y,obj_HWall)){
-	
+if canPushWall{
+	var pushSpeed = 1
 	if keyboard_check(c_right){
-		hspeed = obj_HWall.hspeed
-		obj_HWall.hspeed += .25
+		with (instance_place(x+pushSpeed,y,obj_HWall)){
+			if (!place_meeting(x+pushSpeed,y,par_wall)){
+				hspeed = pushSpeed
+				other.hspeed = pushSpeed
+			}
+		}
 	}
-}
-if (!place_meeting(x+1,y,obj_HWall)){
-	if (obj_HWall.hspeed > 0){
-		obj_HWall.hspeed = 0
+	if keyboard_check(c_left){
+		with (instance_place(x-pushSpeed,y,obj_HWall)){
+			if (!place_meeting(x-pushSpeed,y,par_wall)){
+				hspeed = -pushSpeed
+				other.hspeed = -pushSpeed
+			}
+		}
 	}
 }
