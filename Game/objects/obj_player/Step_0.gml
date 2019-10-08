@@ -59,11 +59,11 @@ if keyboard_check(c_jump) and vspeed >= -2{
 #region Wall Jump
 
 if (canWallJump){
-	if (keyboard_check_pressed(c_right) and place_meeting(x-1,y,par_wall)){
+	if (keyboard_check_pressed(c_right) and place_meeting(x-1,y,par_wall) and !onGround){
 		hspeed = groundSpeed
 		vspeed = -jumpSpeed
 	}
-	if (keyboard_check_pressed(c_left) and place_meeting(x+1,y,par_wall)){
+	if (keyboard_check_pressed(c_left) and place_meeting(x+1,y,par_wall) and !onGround){
 		hspeed = -groundSpeed
 		vspeed = -jumpSpeed
 	}
