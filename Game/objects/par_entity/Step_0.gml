@@ -1,81 +1,37 @@
 var grav = 0.6
+#region Gravity
+
+vspeed += grav
+
+#endregion
 #region Rope Collision
 
-if collision_type == 1 and rope_obj.maxReached{
-	var x2 = attached_obj.x
-	var y2 = attached_obj.y
+for(var i = 0; i < array_length_1d(rope_obj); i++){
+	if rope_obj[i] != noone and rope_obj[0].maxReached{
+		var x2 = attached_obj[i].x
+		var y2 = attached_obj[i].y
 	
-	var dir = point_direction(x,y,x2,y2)
-	var dist = point_distance(x,y,x2,y2)
+		var dir = point_direction(x,y,x2,y2)
 	
-	var x1next = x+hspeed
-	var y1next = y+vspeed
-	var x2next = x2 + attached_obj.hspeed
-	var y2next = y2 + attached_obj.vspeed
-	
-	var distNext = point_distance(x1next,y1next,x2next,y2next)
-	
-	var systHSpeed = hspeed+attached_obj.hspeed
-	var systVSpeed = vspeed+attached_obj.vspeed
-	
-	var dirDiff1 = dirDiff(direction, dir)
-	var dirDiff2 = dirDiff(attached_obj.direction, dir + 180)
-	
-	if distNext > dist{
-		var addedForce = 1.2
+		if abs(dirDiff(direction,dir)) >= 90{
 		
-		var ang = degtorad(dir)
-		var oldHSpeed = hspeed
-		var oldVSpeed = vspeed
-		hspeed = systHSpeed * 0.5 + addedForce*cos(ang)
-		vspeed = systVSpeed * 0.5 - addedForce*sin(ang)
+			var pow = abs(lengthdir_x(speed, -(dir+180)+direction))
+			hspeed += lengthdir_x(pow, dir)
+			vspeed += lengthdir_y(pow, dir)
 		
-		//ang += sign(dirDiff1)*degtorad(-90)
-		//hspeed += oldHSpeed * cos(ang)
-		//vspeed += oldVSpeed * -sin(ang)
-	
-		ang = degtorad(dir+180)
-		oldHSpeed = attached_obj.hspeed
-		oldVSpeed = attached_obj.vspeed
-		attached_obj.hspeed = systHSpeed * 0.5 + addedForce*cos(ang)
-		attached_obj.vspeed = systVSpeed * 0.5 - addedForce*sin(ang)
-		
-		//ang += sign(dirDiff2)*degtorad(-90)
-		//attached_obj.hspeed += oldHSpeed * cos(ang)
-		//attached_obj.vspeed += oldVSpeed * -sin(ang)
+			if (rope_obj[0].length/rope_obj[0].maxLength > 1.1){
+				var pullback = rope_obj[0].length/rope_obj[0].maxLength
+				hspeed += lengthdir_x(pullback, dir)
+				vspeed += lengthdir_y(pullback, dir)
+			}
+		}
 	}
 }
 
 #endregion
 #region Collisions
-switch(collision_type){
-case 0: #region Normal Collisions
-
-//Gravity
-vspeed += grav
 
 vertical_collision()
 horizontal_collision()
-
-break #endregion
-case 1: #region Rope Collision
-
-//Gravity
-vspeed += grav
-with(attached_obj)
-	vspeed += grav
-
-vertical_collision()
-horizontal_collision()
-
-with(attached_obj){
-	vertical_collision()
-	horizontal_collision()
-}
-
-break #endregion
-}
-
-
 
 #endregion
