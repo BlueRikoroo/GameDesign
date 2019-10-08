@@ -39,8 +39,8 @@ else if keyboard_check(c_left){
 // Inherit the parent event
 event_inherited();
 
-if (place_meeting(x,y,obj_Handle)){
-	if keyboard_check(c_space){
+if (onGround and place_meeting(x,y,obj_Handle)){
+	if keyboard_check(c_grab){
 		hspeed = 0	
 		vspeed = 0
 	}
