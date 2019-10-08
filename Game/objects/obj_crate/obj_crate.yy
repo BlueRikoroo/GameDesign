@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_crate",
     "eventList": [
-        
+        {
+            "id": "f7a4cdef-165e-4abc-8bd6-3011db2157a0",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "c992d4c0-98d4-4069-ae19-df2c01a242b5"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
@@ -24,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "b3cefa07-ce7f-40e0-b517-d913c3f263bf",
+    "spriteId": "2ea16965-f2f8-43f8-bb3a-b69580d5cc41",
     "visible": true
 }
