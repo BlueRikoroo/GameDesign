@@ -12,6 +12,12 @@ c_grab = vk_space
 groundSpeed = 5
 jumpSpeed = 20
 accelVal = 0.3
+faceingDirection = Dir.right //1 for right, -1 for left
 
 #endregion
 canPushWall = false
+#region Aniamtions
+
+anim_default = spr_player_default_b
+
+#endregion

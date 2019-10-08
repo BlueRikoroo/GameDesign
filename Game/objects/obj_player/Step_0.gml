@@ -18,12 +18,14 @@ if keyboard_check_pressed(c_jump) and onGround{
 #region Move left and Right
 
 if keyboard_check(c_right){
+	faceingDirection = Dir.right
 	if onGround
 		hspeed = min(hspeed + accelVal, groundSpeed)
 	else
 		hspeed += accelVal*0.5
 }
 else if keyboard_check(c_left){
+	faceingDirection = Dir.left
 	if onGround
 		hspeed = max(hspeed - accelVal, -groundSpeed)
 	else
@@ -41,12 +43,17 @@ else if keyboard_check(c_left){
 // Inherit the parent event
 event_inherited();
 
+#region Grab
+
 if (onGround and place_meeting(x,y,obj_Handle)){
 	if keyboard_check(c_grab){
 		hspeed = 0	
 		vspeed = 0
 	}
 }
+
+#endregion
+#region Pushing Giant Wall
 
 if canPushWall{
 	var pushSpeed = 1
@@ -68,9 +75,12 @@ if canPushWall{
 	}
 }
 
+#endregion
+#region Standing on Crate
+
 if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 	var obj = instance_place(x, y+vspeed, obj_crate)
-	if y <= obj.y-obj.height{
+	if y <= obj.y-obj.height+10{
 		while(!place_meeting(x,y+1,obj_crate))
 			y++
 		vspeed = 0
@@ -79,3 +89,5 @@ if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 		}
 	}
 }
+
+#endregion

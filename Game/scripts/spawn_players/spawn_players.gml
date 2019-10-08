@@ -5,35 +5,36 @@
 
 
 // Returns [player1, player2, rope]
-var obj1 = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
-var obj2 = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
+var boyChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
+var girlChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var rope = instance_create_layer(0, 0, get_layer_depth(1), obj_rope)
 
-obj1.c_left = ord("A")
-obj1.c_right = ord("D")
-obj1.c_jump = ord("W")
-obj1.image_xscale = 2
-obj1.image_yscale = 3
-obj1.attached_obj[0] = obj2
-obj1.rope_obj[0] = rope
-obj1.groundSpeed = 4
-obj1.jumpSpeed = 17
-obj1.accelVal = 0.3
-obj1.canPushWall = true
+boyChar.c_left = ord("A")
+boyChar.c_right = ord("D")
+boyChar.c_jump = ord("W")
+boyChar.image_xscale = 2
+boyChar.image_yscale = 3
+boyChar.attached_obj[0] = girlChar
+boyChar.rope_obj[0] = rope
+boyChar.groundSpeed = 4
+boyChar.jumpSpeed = 17
+boyChar.accelVal = 0.3
+boyChar.canPushWall = true
 
-obj2.c_left = ord("J")
-obj2.c_right = ord("L")
-obj2.c_jump = ord("I")
-obj2.image_xscale = 1.5
-obj2.image_yscale = 2
-obj2.attached_obj[0] = obj1
-obj2.rope_obj[0] = rope
-obj2.groundSpeed = 7
-obj2.jumpSpeed = 20
-obj2.accelVal = 0.5
+girlChar.c_left = ord("J")
+girlChar.c_right = ord("L")
+girlChar.c_jump = ord("I")
+girlChar.image_xscale = 1.5
+girlChar.image_yscale = 2
+girlChar.attached_obj[0] = boyChar
+girlChar.rope_obj[0] = rope
+girlChar.groundSpeed = 7
+girlChar.jumpSpeed = 20
+girlChar.accelVal = 0.5
+girlChar.anim_default = spr_player_default_g
 
-rope.obj1 = obj1
-rope.obj2 = obj2
+rope.obj1 = boyChar
+rope.obj2 = girlChar
 rope.maxLength = argument2
 
-return [obj1, obj2, rope]
+return [boyChar, girlChar, rope]
