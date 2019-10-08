@@ -17,8 +17,8 @@ boyChar.image_yscale = 3
 boyChar.attached_obj[0] = girlChar
 boyChar.rope_obj[0] = rope
 boyChar.groundSpeed = 4
-boyChar.jumpSpeed = 17
-boyChar.accelVal = 0.3
+boyChar.jumpSpeed = 15
+boyChar.accelVal = 0.2
 boyChar.canPushWall = true
 
 girlChar.c_left = ord("J")
@@ -28,10 +28,11 @@ girlChar.image_xscale = 1.5
 girlChar.image_yscale = 2
 girlChar.attached_obj[0] = boyChar
 girlChar.rope_obj[0] = rope
-girlChar.groundSpeed = 7
-girlChar.jumpSpeed = 20
-girlChar.accelVal = 0.5
+girlChar.groundSpeed = 5
+girlChar.jumpSpeed = 17
+girlChar.accelVal = 0.3
 girlChar.anim_default = spr_player_default_g
+girlChar.canWallJump = true
 
 rope.obj1 = boyChar
 rope.obj2 = girlChar

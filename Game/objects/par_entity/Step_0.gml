@@ -31,8 +31,8 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 #endregion
 #region Collisions
 
-vertical_collision()
-horizontal_collision()
+vertical_collision(par_wall)
+horizontal_collision(par_wall)
 
 #endregion
 

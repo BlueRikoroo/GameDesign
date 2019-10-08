@@ -6,7 +6,7 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	}
 }
 
-var onGround = place_meeting(x,y+1,par_wall) or place_meeting(x,y+1,obj_crate)
+var onGround = place_meeting(x,y+1,par_wall) or (vspeed > 0 and place_meeting(x,y+1,obj_crate))
 
 #region Jump
 
@@ -21,15 +21,15 @@ if keyboard_check(c_right){
 	faceingDirection = Dir.right
 	if onGround
 		hspeed = min(hspeed + accelVal, groundSpeed)
-	else
-		hspeed += accelVal*0.5
+	else if hspeed < groundSpeed
+		hspeed += accelVal
 }
 else if keyboard_check(c_left){
 	faceingDirection = Dir.left
 	if onGround
 		hspeed = max(hspeed - accelVal, -groundSpeed)
-	else
-		hspeed -= accelVal*0.5
+	else if hspeed > -groundSpeed
+		hspeed -= accelVal
 }else if (onGround or !maxRope){
 	if abs(hspeed) < 1
 		hspeed = 0
@@ -38,14 +38,44 @@ else if keyboard_check(c_left){
 }
 
 #endregion
+#region Climb wall if other player is above
 
+if keyboard_check(c_jump) and vspeed >= -2{
+	for(var i = 0; i < array_length_1d(rope_obj); i++){
+		var otherOnGround = false
+		with(attached_obj[i])
+			otherOnGround = place_meeting(x,y+1,par_wall)
+			
+		if attached_obj[i].y < y and otherOnGround{
+			if ((keyboard_check(c_left) and attached_obj[i].x < x and place_meeting(x-1,y,par_wall))
+			  or (keyboard_check(c_right) and attached_obj[i].x > x and place_meeting(x+1,y,par_wall))){
+				vspeed = -2
+			}
+		}
+	}
+}
 
+#endregion
+#region Wall Jump
+
+if (canWallJump){
+	if (keyboard_check_pressed(c_right) and place_meeting(x-1,y,par_wall)){
+		hspeed = groundSpeed
+		vspeed = -jumpSpeed
+	}
+	if (keyboard_check_pressed(c_left) and place_meeting(x+1,y,par_wall)){
+		hspeed = -groundSpeed
+		vspeed = -jumpSpeed
+	}
+}
+
+#endregion
 // Inherit the parent event
 event_inherited();
 
-#region Grab
+#region Grab handle
 
-if (onGround and place_meeting(x,y,obj_Handle)){
+if (place_meeting(x,y,obj_Handle)){
 	if keyboard_check(c_grab){
 		hspeed = 0	
 		vspeed = 0
@@ -79,8 +109,15 @@ if canPushWall{
 #region Standing on Crate
 
 if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
+	//Don't Worry about crates that are higher
+	with(obj_crate){
+		if other.y > y-height+10
+			instance_deactivate_object(self)	
+	}
+	
+	//Find Crate Under and Stand on it
 	var obj = instance_place(x, y+vspeed, obj_crate)
-	if y <= obj.y-obj.height+10{
+	if instance_exists(obj) and y <= obj.y-obj.height+10{
 		while(!place_meeting(x,y+1,obj_crate))
 			y++
 		vspeed = 0
@@ -88,6 +125,9 @@ if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 			vspeed -= jumpSpeed
 		}
 	}
+	
+	//Reactivate all the crates
+	instance_activate_object(obj_crate)
 }
 
 #endregion

@@ -15,7 +15,12 @@ accelVal = 0.3
 faceingDirection = Dir.right //1 for right, -1 for left
 
 #endregion
+#region Abilities
+
 canPushWall = false
+canWallJump = false
+
+#endregion
 #region Aniamtions
 
 anim_default = spr_player_default_b
