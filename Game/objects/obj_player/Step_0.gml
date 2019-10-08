@@ -75,7 +75,7 @@ event_inherited();
 
 #region Grab handle
 
-if (place_meeting(x,y,obj_Handle)){
+if (place_meeting(x,y,obj_Handle) and !holdingItem){
 	if keyboard_check(c_grab){
 		hspeed = 0	
 		vspeed = 0
@@ -83,6 +83,30 @@ if (place_meeting(x,y,obj_Handle)){
 }
 
 #endregion
+
+#region Grab crate
+
+if keyboard_check_pressed(c_grab)
+{
+	if (heldItem == noone)
+	{
+		with (instance_place(x,y,obj_crate))
+		{
+			other.heldItem = self
+			parent = other
+			other.holdingItem = true
+		}
+	}
+	else
+	{
+		heldItem.parent = noone
+		heldItem = noone
+		holdingItem = false
+	}
+}
+
+#endregion
+
 #region Pushing Giant Wall
 
 if canPushWall{
