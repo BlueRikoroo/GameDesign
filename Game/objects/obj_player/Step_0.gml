@@ -36,6 +36,14 @@ else if keyboard_check(c_left){
 
 #endregion
 
+
 // Inherit the parent event
 event_inherited();
 
+if(vspeed > 0 and place_meeting(x,y+1,obj_crate))
+{
+	vspeed = 0
+	if keyboard_check_pressed(c_jump){	
+		vspeed -= 20
+	}
+}
