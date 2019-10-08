@@ -26,3 +26,9 @@ canWallJump = false
 anim_default = spr_player_default_b
 
 #endregion
+#region Flags
+
+holdingItem = false
+heldItem = noone
+
+#endregion

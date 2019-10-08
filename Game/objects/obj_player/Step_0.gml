@@ -6,7 +6,7 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	}
 }
 
-var onGround = place_meeting(x,y+1,par_wall) or (vspeed > 0 and place_meeting(x,y+1,obj_crate))
+var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and place_meeting(x,y+1,obj_crate))
 
 #region Jump
 
@@ -59,11 +59,11 @@ if keyboard_check(c_jump) and vspeed >= -2{
 #region Wall Jump
 
 if (canWallJump){
-	if (keyboard_check_pressed(c_right) and place_meeting(x-1,y,par_wall)){
+	if (keyboard_check_pressed(c_right) and place_meeting(x-1,y,par_wall) and !onGround){
 		hspeed = groundSpeed
 		vspeed = -jumpSpeed
 	}
-	if (keyboard_check_pressed(c_left) and place_meeting(x+1,y,par_wall)){
+	if (keyboard_check_pressed(c_left) and place_meeting(x+1,y,par_wall) and !onGround){
 		hspeed = -groundSpeed
 		vspeed = -jumpSpeed
 	}
@@ -75,7 +75,7 @@ event_inherited();
 
 #region Grab handle
 
-if (place_meeting(x,y,obj_Handle)){
+if (place_meeting(x,y,obj_Handle) and !holdingItem){
 	if keyboard_check(c_grab){
 		hspeed = 0	
 		vspeed = 0
@@ -83,6 +83,30 @@ if (place_meeting(x,y,obj_Handle)){
 }
 
 #endregion
+
+#region Grab crate
+
+if keyboard_check_pressed(c_grab)
+{
+	if (heldItem == noone)
+	{
+		with (instance_place(x,y,obj_crate))
+		{
+			other.heldItem = self
+			parent = other
+			other.holdingItem = true
+		}
+	}
+	else
+	{
+		heldItem.parent = noone
+		heldItem = noone
+		holdingItem = false
+	}
+}
+
+#endregion
+
 #region Pushing Giant Wall
 
 if canPushWall{
