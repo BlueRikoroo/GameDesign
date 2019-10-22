@@ -8,6 +8,7 @@
 var boyChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var girlChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var rope = instance_create_layer(0, 0, get_layer_depth(1), obj_rope)
+var camera = instance_create_layer(0, 0, get_layer_depth(0), obj_camera)
 
 boyChar.c_left = ord("A")
 boyChar.c_right = ord("D")
@@ -38,4 +39,10 @@ rope.obj1 = boyChar
 rope.obj2 = girlChar
 rope.maxLength = argument2
 
-return [boyChar, girlChar, rope]
+camera.character1 = boyChar
+camera.character2 = girlChar
+var posx = (boyChar.x + girlChar.x) * 0.5
+var posy = (boyChar.y + girlChar.y) * 0.5
+camera_set_view_pos(camera.camera, posx, posy)
+
+return [boyChar, girlChar, rope, camera]
