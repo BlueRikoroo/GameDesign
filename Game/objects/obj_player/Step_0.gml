@@ -155,3 +155,12 @@ if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 }
 
 #endregion
+
+#region End Level
+
+if (place_meeting(x,y,obj_portal))
+{
+	room_goto(rm_results);
+	global.roomcounter += 1;
+}
+#endregion
