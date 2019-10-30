@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "2d1d9721-8110-4e28-9f0e-1200efa6f757",
+            "Value": {
+                "id": "98ca90fa-ac36-4135-a5d4-96d6d267ff0c",
+                "resourcePath": "objects\\obj_timer\\obj_timer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "2ea16965-f2f8-43f8-bb3a-b69580d5cc41",
             "Value": {
                 "id": "c2492623-a0b5-4c8f-8aad-f11176b19ed5",
@@ -196,6 +204,14 @@
                 "id": "ca26506e-f812-4597-b95c-fe00620fe932",
                 "resourcePath": "objects\\par_wall\\par_wall.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "79c63992-0807-4531-9891-531d1b752f31",
+            "Value": {
+                "id": "c9539cd8-311e-4b4b-a319-d9cebd063476",
+                "resourcePath": "fonts\\ft_time\\ft_time.yy",
+                "resourceType": "GMFont"
             }
         },
         {
