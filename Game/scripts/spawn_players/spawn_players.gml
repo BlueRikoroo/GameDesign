@@ -5,6 +5,7 @@
 
 
 // Returns [player1, player2, rope]
+
 var boyChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var girlChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var rope = instance_create_layer(0, 0, get_layer_depth(1), obj_rope)

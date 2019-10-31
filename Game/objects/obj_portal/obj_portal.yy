@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_portal",
     "eventList": [
-        
+        {
+            "id": "89c4b060-f728-412a-aa75-95ce7624677d",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "083c5a50-4c68-4e9d-add8-5495fdb782fd"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
