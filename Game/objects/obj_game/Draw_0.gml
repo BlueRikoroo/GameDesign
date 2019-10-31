@@ -8,7 +8,8 @@ draw_text_transformed_color(
 	room_width/2, 200, "SOUL CHAIN", 3, 3, 0,
 	c,c1,c2,c3,1
 	);
-draw_text(room_width/2, 500,"PRESS ENTER TO START");
+draw_set_font(ft_time);
+draw_text(room_width/2, 800,"PRESS ENTER TO START");
 draw_set_halign(fa_left);
 
 
