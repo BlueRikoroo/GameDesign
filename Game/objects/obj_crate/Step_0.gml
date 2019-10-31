@@ -9,7 +9,14 @@ if (parent == noone)
 }
 else
 {
-	x = parent.x
-	y = parent.y
+	if(!instance_exists(parent))
+	{
+		parent = noone;
+	}
+	else
+	{
+		x = parent.x
+		y = parent.y
+	}
 }
 
