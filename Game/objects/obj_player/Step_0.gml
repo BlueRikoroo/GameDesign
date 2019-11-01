@@ -6,7 +6,7 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	}
 }
 
-var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and place_meeting(x,y+1,obj_crate))
+var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and place_meeting(x,y+1,obj_crate) or place_meeting(x,y+1,obj_Platform))
 
 #region Jump
 
@@ -156,3 +156,47 @@ if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 
 #endregion
 
+#region Moving Platform Interaction
+
+
+if(place_meeting(x,y+1,obj_Platform))
+{
+	
+	var Pinstance = instance_place(x, y+3, obj_Platform);
+	if(Pinstance.Horizontal_Platform = true)
+	{
+		vspeed = Pinstance.vertical_speed;
+		if keyboard_check_pressed(c_jump) and onGround
+		{	
+		vspeed -= jumpSpeed
+		}
+		hspeed = Pinstance.horizontal_speed * Pinstance.dir;
+	
+		if keyboard_check(c_right)
+		{
+		faceingDirection = Dir.right
+		if onGround
+			hspeed = min(hspeed + accelVal*5, groundSpeed)
+		else if hspeed < groundSpeed
+			hspeed += accelVal*5
+		}
+		else if keyboard_check(c_left)
+		{
+			faceingDirection = Dir.left
+			if onGround
+				hspeed = max(hspeed - accelVal*5, -groundSpeed)
+			else if hspeed > -groundSpeed
+				hspeed -= accelVal*5
+		}
+	}
+	else
+	{
+		vspeed = 0;
+		vspeed = Pinstance.vertical_speed * Pinstance.dir;
+		if keyboard_check_pressed(c_jump) and onGround
+		{	
+		vspeed -= jumpSpeed
+		}
+	}
+}
+#endregion
