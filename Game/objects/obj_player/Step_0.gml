@@ -161,11 +161,10 @@ if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 
 if(place_meeting(x,y+1,obj_Platform))
 {
-	
-	var Pinstance = instance_place(x, y+3, obj_Platform);
+	var Pinstance = instance_place(x, y+1, obj_Platform);
 	if(Pinstance.Horizontal_Platform = true)
 	{
-		vspeed = Pinstance.vertical_speed;
+		vspeed = 0;
 		if keyboard_check_pressed(c_jump) and onGround
 		{	
 		vspeed -= jumpSpeed
@@ -191,7 +190,7 @@ if(place_meeting(x,y+1,obj_Platform))
 	}
 	else
 	{
-		vspeed = 0;
+		vertical_collision(Pinstance);
 		vspeed = Pinstance.vertical_speed * Pinstance.dir;
 		if keyboard_check_pressed(c_jump) and onGround
 		{	
