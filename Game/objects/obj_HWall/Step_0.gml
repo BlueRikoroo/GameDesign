@@ -12,8 +12,12 @@ if ( (curr_coll==1) && (prev_coll==0) )
 }
 #endregion
 #region Being pushed sound
-if(hspeed > 0 and vspeed = 0)
+if(hspeed > 0 and vspeed == 0)
 {
 	audio_play_sound(Heavy_Wall_Scrape,1,false);
+}
+if(vspeed > 0)
+{
+	audio_stop_sound(Heavy_Wall_Scrape);	
 }
 #endregion

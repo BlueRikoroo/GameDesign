@@ -287,6 +287,14 @@
             }
         },
         {
+            "Key": "7ee8e306-d753-4f8f-9220-4f9ef23c537d",
+            "Value": {
+                "id": "a5ce5f5c-1f3d-4dda-a66f-f4e677b381b4",
+                "resourcePath": "sounds\\Crate_Fall\\Crate_Fall.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "80a7098c-6202-44c6-9c2c-044eb370832e",
             "Value": {
                 "id": "d576f5b7-4f76-457c-bec1-1301d6082e9a",

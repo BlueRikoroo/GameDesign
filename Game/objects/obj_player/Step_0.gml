@@ -14,7 +14,7 @@ if keyboard_check_pressed(c_jump) and onGround{
 	vspeed -= jumpSpeed
 	audio_play_sound(jumpSound,5,false);
 }
-
+#endregion
 
 #region Move left and Right
 
@@ -57,6 +57,7 @@ if keyboard_check(c_jump) and vspeed >= -2{
 }
 
 #endregion
+
 #region Wall Jump
 
 if (canWallJump){
@@ -131,6 +132,8 @@ if canPushWall{
 }
 
 #endregion
+
+
 #region Standing on Crate
 
 if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
@@ -200,14 +203,13 @@ if(place_meeting(x,y+1,obj_Platform))
 	}
 }
 #endregion
-#endregion
 #region Landing Sound
 var curr_coll = place_meeting(x,y+1,par_wall);
 var prev_coll = place_meeting(xprevious,yprevious+1,par_wall);
 
 if ( (curr_coll==1) && (prev_coll==0) )
 {
-    audio_play_sound(landSound,6,false);
+    audio_play_sound(landSound,5,false);
 }
 
 #endregion
