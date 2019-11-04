@@ -24,6 +24,7 @@ boyChar.accelVal = 0.2
 boyChar.canPushWall = true
 boyChar.jumpSound = Boy_Jump
 boyChar.landSound = Boy_Landing
+boyChar.fallSound = Boy_Fall
 
 girlChar.c_left = ord("J")
 girlChar.c_right = ord("L")
@@ -39,6 +40,7 @@ girlChar.anim_default = spr_player_default_g
 girlChar.canWallJump = true
 girlChar.jumpSound = Girl_Jump
 girlChar.landSound = Girl_Landing
+girlChar.fallSound = Girl_Fall
 
 rope.obj1 = boyChar
 rope.obj2 = girlChar

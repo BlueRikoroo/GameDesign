@@ -1,6 +1,5 @@
-instance_destroy();
-if (instance_number(obj_player) < 1)
-{
-	global.deaths += 1;
-	room_restart();
-}
+audio_play_sound(fallSound,10,false);
+alarm[0] = room_speed *3;
+
+global.deaths += 1;
+

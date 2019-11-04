@@ -71,6 +71,22 @@
             }
         },
         {
+            "Key": "15519ddb-f83a-4046-8d0c-15e001267788",
+            "Value": {
+                "id": "b7e1c651-a638-483e-9b1e-e834f3130724",
+                "resourcePath": "sounds\\Girl_Fall\\Girl_Fall.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "2002975a-ff21-4ecd-9e4f-cbe673b8dd62",
+            "Value": {
+                "id": "62073eb5-2d30-4c69-8764-70c570baedd5",
+                "resourcePath": "sounds\\Boy_Fall\\Boy_Fall.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "20033aaf-32b6-4ae1-9603-28a5e9d7be3b",
             "Value": {
                 "id": "f2de96a2-fcfd-4060-a8ff-7143caa18f98",
@@ -411,6 +427,14 @@
             "Value": {
                 "id": "72f29a28-ff9a-4e8c-9327-8665ec81bc1a",
                 "resourcePath": "sounds\\Boy_Jump\\Boy_Jump.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "b5d90a6a-38ce-42a8-88c2-a8631cd47285",
+            "Value": {
+                "id": "c7d2ef4f-53b2-4472-a5dd-126eb136a1c5",
+                "resourcePath": "sounds\\Warp_Sound\\Warp_Sound.yy",
                 "resourceType": "GMSound"
             }
         },
