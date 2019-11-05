@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "2a479c48-1381-471c-89b8-7a11427cd260",
+            "Value": {
+                "id": "50c2c987-0f3b-412f-93ea-192c4a7f389f",
+                "resourcePath": "rooms\\level_3\\level_3.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "2ea16965-f2f8-43f8-bb3a-b69580d5cc41",
             "Value": {
                 "id": "c2492623-a0b5-4c8f-8aad-f11176b19ed5",
@@ -99,6 +107,14 @@
             "Value": {
                 "id": "93b479da-c728-4065-9dbc-ee0ae63be788",
                 "resourcePath": "sprites\\spr_Handle\\spr_Handle.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "43dee8e0-3161-4213-ba70-9be384a44b5d",
+            "Value": {
+                "id": "04ca910a-f63b-4821-ba1c-5a9af6e85b52",
+                "resourcePath": "sprites\\test_cave_tiles\\test_cave_tiles.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -279,6 +295,14 @@
             }
         },
         {
+            "Key": "9a971b1f-e771-4013-80c3-037ef6691d5a",
+            "Value": {
+                "id": "d08450be-6ef9-4503-9f5b-6341a003bf63",
+                "resourcePath": "tilesets\\cave_tiles\\cave_tiles.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "9b813c2a-fb99-444a-a3fe-978372000048",
             "Value": {
                 "id": "7257c310-bf72-47b1-a4e0-8d8c735f964b",
@@ -306,7 +330,7 @@
             "Key": "a759b1f8-c176-4d53-b670-710aeca163f6",
             "Value": {
                 "id": "f4828d67-9ea2-46dc-8563-f7a115573679",
-                "resourcePath": "sprites\\tileSetTest\\tileSetTest.yy",
+                "resourcePath": "sprites\\test_ice_tiles\\test_ice_tiles.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -418,7 +442,7 @@
             "Key": "d58dfe35-d2f2-4ef1-a3b8-27dd8472b79f",
             "Value": {
                 "id": "3a88b3ca-9d41-4e7b-911c-094c75ebb869",
-                "resourcePath": "tilesets\\tileset0\\tileset0.yy",
+                "resourcePath": "tilesets\\ice_tiles\\ice_tiles.yy",
                 "resourceType": "GMTileSet"
             }
         },
