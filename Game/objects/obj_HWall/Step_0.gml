@@ -20,4 +20,8 @@ if(vspeed > 0)
 {
 	audio_stop_sound(Heavy_Wall_Scrape);	
 }
+if(hspeed == 0)
+{
+	audio_stop_sound(Heavy_Wall_Scrape)
+}
 #endregion
