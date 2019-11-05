@@ -146,7 +146,7 @@
             "Key": "3f654f59-3b69-45e5-b838-408f069195f4",
             "Value": {
                 "id": "7c1ac3ee-d364-4973-a2f5-b5833801ccbb",
-                "resourcePath": "sprites\\spr_portal\\spr_portal.yy",
+                "resourcePath": "sprites\\spr_Portal\\spr_Portal.yy",
                 "resourceType": "GMSprite"
             }
         },
