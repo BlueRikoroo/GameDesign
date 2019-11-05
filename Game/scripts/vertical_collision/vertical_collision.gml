@@ -11,4 +11,5 @@ if vspeed != 0 and place_meeting(x,y+vspeed,argument0){
 	
 	//Stop moving
 	vspeed = 0
+	
 }

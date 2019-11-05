@@ -5,6 +5,7 @@
 
 
 // Returns [player1, player2, rope]
+
 var boyChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var girlChar = instance_create_layer(argument0, argument1, get_layer_depth(0), obj_player)
 var rope = instance_create_layer(0, 0, get_layer_depth(1), obj_rope)
@@ -18,9 +19,12 @@ boyChar.image_yscale = 3
 boyChar.attached_obj[0] = girlChar
 boyChar.rope_obj[0] = rope
 boyChar.groundSpeed = 4
-boyChar.jumpSpeed = 15
+boyChar.jumpSpeed = 14.5
 boyChar.accelVal = 0.2
 boyChar.canPushWall = true
+boyChar.jumpSound = Boy_Jump
+boyChar.landSound = Boy_Landing
+boyChar.fallSound = Boy_Fall
 
 girlChar.c_left = ord("J")
 girlChar.c_right = ord("L")
@@ -34,6 +38,9 @@ girlChar.jumpSpeed = 17
 girlChar.accelVal = 0.3
 girlChar.anim_default = spr_player_default_g
 girlChar.canWallJump = true
+girlChar.jumpSound = Girl_Jump
+girlChar.landSound = Girl_Landing
+girlChar.fallSound = Girl_Fall
 
 rope.obj1 = boyChar
 rope.obj2 = girlChar
