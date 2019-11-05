@@ -6,15 +6,16 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	}
 }
 
-var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and place_meeting(x,y+1,obj_crate))
+var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and place_meeting(x,y+1,obj_crate) or place_meeting(x,y+1,obj_Platform))
 
 #region Jump
 
 if keyboard_check_pressed(c_jump) and onGround{	
 	vspeed -= jumpSpeed
+	audio_play_sound(jumpSound,5,false);
 }
-
 #endregion
+
 #region Move left and Right
 
 if keyboard_check(c_right){
@@ -56,6 +57,7 @@ if keyboard_check(c_jump) and vspeed >= -2{
 }
 
 #endregion
+
 #region Wall Jump
 
 if (canWallJump){
@@ -130,6 +132,8 @@ if canPushWall{
 }
 
 #endregion
+
+
 #region Standing on Crate
 
 if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
@@ -152,6 +156,60 @@ if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 	
 	//Reactivate all the crates
 	instance_activate_object(obj_crate)
+}
+
+#endregion
+
+#region Moving Platform Interaction
+
+
+if(place_meeting(x,y+1,obj_Platform))
+{
+	var Pinstance = instance_place(x, y+1, obj_Platform);
+	if(Pinstance.Horizontal_Platform = true)
+	{
+		vspeed = 0;
+		if keyboard_check_pressed(c_jump) and onGround
+		{	
+		vspeed -= jumpSpeed
+		}
+		hspeed = Pinstance.horizontal_speed * Pinstance.dir;
+	
+		if keyboard_check(c_right)
+		{
+		faceingDirection = Dir.right
+		if onGround
+			hspeed = min(hspeed + accelVal*5, groundSpeed)
+		else if hspeed < groundSpeed
+			hspeed += accelVal*5
+		}
+		else if keyboard_check(c_left)
+		{
+			faceingDirection = Dir.left
+			if onGround
+				hspeed = max(hspeed - accelVal*5, -groundSpeed)
+			else if hspeed > -groundSpeed
+				hspeed -= accelVal*5
+		}
+	}
+	else
+	{
+		vertical_collision(Pinstance);
+		vspeed = Pinstance.vertical_speed * Pinstance.dir;
+		if keyboard_check_pressed(c_jump) and onGround
+		{	
+		vspeed -= jumpSpeed
+		}
+	}
+}
+#endregion
+#region Landing Sound
+var curr_coll = place_meeting(x,y+1,par_wall);
+var prev_coll = place_meeting(xprevious,yprevious+1,par_wall);
+
+if ( (curr_coll==1) && (prev_coll==0) )
+{
+    audio_play_sound(landSound,5,false);
 }
 
 #endregion

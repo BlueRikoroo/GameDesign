@@ -1,4 +1,3 @@
-
 {
     "name": "room_example2",
     "id": "c42a1d16-e608-4022-a522-466b9c5e5b72",
