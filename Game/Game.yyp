@@ -438,6 +438,46 @@
                 "resourceType": "GMSound"
             }
         },
+        { 
+            "Key": "2a479c48-1381-471c-89b8-7a11427cd260", 
+            "Value": { 
+                "id": "50c2c987-0f3b-412f-93ea-192c4a7f389f", 
+                "resourcePath": "rooms\\level_3\\level_3.yy", 
+                "resourceType": "GMRoom" 
+            } 
+        },
+        { 
+            "Key": "a759b1f8-c176-4d53-b670-710aeca163f6", 
+            "Value": { 
+                "id": "f4828d67-9ea2-46dc-8563-f7a115573679", 
+                "resourcePath": "sprites\\test_ice_tiles\\test_ice_tiles.yy", 
+                "resourceType": "GMSprite" 
+            } 
+        },  
+        { 
+            "Key": "d58dfe35-d2f2-4ef1-a3b8-27dd8472b79f", 
+            "Value": { 
+                "id": "3a88b3ca-9d41-4e7b-911c-094c75ebb869", 
+                "resourcePath": "tilesets\\ice_tiles\\ice_tiles.yy", 
+                "resourceType": "GMTileSet" 
+            } 
+        }, 
+        { 
+            "Key": "9a971b1f-e771-4013-80c3-037ef6691d5a", 
+            "Value": { 
+                "id": "d08450be-6ef9-4503-9f5b-6341a003bf63", 
+                "resourcePath": "tilesets\\cave_tiles\\cave_tiles.yy", 
+                "resourceType": "GMTileSet" 
+            } 
+        }, 
+        { 
+            "Key": "43dee8e0-3161-4213-ba70-9be384a44b5d", 
+            "Value": { 
+                "id": "04ca910a-f63b-4821-ba1c-5a9af6e85b52", 
+                "resourcePath": "sprites\\test_cave_tiles\\test_cave_tiles.yy", 
+                "resourceType": "GMSprite" 
+            } 
+        }, 
         {
             "Key": "be1d1ae8-c633-4d2f-85c0-a6ef2d4ce279",
             "Value": {
