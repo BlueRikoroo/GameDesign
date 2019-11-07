@@ -8,7 +8,10 @@ if(global.timing == true)
 		global.seconds = 0
 	}
 }
-
+if(room != rm_splash and room != rm_start)
+{
+	audio_play_sound(choose(BG_Music_1,BG_Music_2), 5, false);	
+}
 
 
 

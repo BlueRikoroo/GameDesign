@@ -143,19 +143,19 @@
             }
         },
         {
-            "Key": "2bbfaf5e-44e1-4132-8298-0b0e4581d8d1",
-            "Value": {
-                "id": "5f109417-2d45-4c38-974e-5ad44b52f727",
-                "resourcePath": "tilesets\\tileset2\\tileset2.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "2b966f38-eb0e-4e77-824e-9f444002eb45",
             "Value": {
                 "id": "d2f636cd-16a2-4254-be56-bd91f9995bb5",
                 "resourcePath": "sprites\\spr_logo\\spr_logo.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2bbfaf5e-44e1-4132-8298-0b0e4581d8d1",
+            "Value": {
+                "id": "5f109417-2d45-4c38-974e-5ad44b52f727",
+                "resourcePath": "tilesets\\tileset2\\tileset2.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -403,6 +403,22 @@
             "Value": {
                 "id": "a5ce5f5c-1f3d-4dda-a66f-f4e677b381b4",
                 "resourcePath": "sounds\\Crate_Fall\\Crate_Fall.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "8055befd-72ce-4a03-b46a-28cf90fb162f",
+            "Value": {
+                "id": "012e390e-7ccf-4bdb-ba5a-130ef1b79f3d",
+                "resourcePath": "sounds\\BG_Music_2\\BG_Music_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "806b98f8-bcc3-4195-a6cc-db635103a62c",
+            "Value": {
+                "id": "29e2f284-5e0a-4b91-96fa-cada76a5bb83",
+                "resourcePath": "sounds\\BG_Music_1\\BG_Music_1.yy",
                 "resourceType": "GMSound"
             }
         },
