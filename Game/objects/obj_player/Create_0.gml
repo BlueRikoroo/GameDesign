@@ -5,6 +5,7 @@ c_left = vk_left
 c_right = vk_right
 c_jump = vk_up
 c_grab = vk_space
+c_grab_crate = vk_alt
 
 #endregion
 #region Movement 

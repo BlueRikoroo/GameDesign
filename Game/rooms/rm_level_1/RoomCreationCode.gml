@@ -1,0 +1,1 @@
+spawn_players(30,375,350)

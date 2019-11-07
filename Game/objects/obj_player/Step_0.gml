@@ -88,7 +88,7 @@ if (place_meeting(x,y,obj_Handle) and !holdingItem){
 
 #region Grab crate
 
-if keyboard_check_pressed(c_grab)
+if keyboard_check_pressed(c_grab_crate)
 {
 	if (heldItem == noone)
 	{
