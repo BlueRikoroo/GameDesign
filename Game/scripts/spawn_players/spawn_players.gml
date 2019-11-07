@@ -48,6 +48,10 @@ rope.maxLength = argument2
 
 camera.character1 = boyChar
 camera.character2 = girlChar
+camera.char1X = boyChar.x
+camera.char1Y = boyChar.y
+camera.char2X = girlChar.x
+camera.char2Y = girlChar.y
 var posx = (boyChar.x + girlChar.x) * 0.5
 var posy = (boyChar.y + girlChar.y) * 0.5
 camera_set_view_pos(camera.camera, posx, posy)

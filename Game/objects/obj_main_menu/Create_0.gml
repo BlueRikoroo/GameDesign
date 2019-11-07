@@ -1,4 +1,5 @@
 /// @description 
+global.currentLevel = 0
 #region File Loading
 // README: Any value that is a VAR is editable
 
@@ -6,14 +7,20 @@ totalLevels = 7
 levelData = noone;
 //Level Data is a double array.
 //[x, ] = the level, 0->totalLevels
-//[, x] = the value, 0=cleared(0 or 1), 1=clearTime, 2=coinArray, 
-var coinsAvailable = noone;
+//[, x] = the value, 0=cleared(0 or 1), 1=clearTimeMin, 2=clearTimeSec, 3=coinArray, 
+coinsAvailable = noone;
 //[x] = how many coins are available in each level
 for(var i = 0; i < totalLevels; i++)
 	coinsAvailable[i] = 0 //Default Value
 #region Get Coins Available
 
-coinsAvailable[0] = 2
+coinsAvailable[0] = 1
+coinsAvailable[1] = 2
+coinsAvailable[2] = 0
+coinsAvailable[3] = 2
+coinsAvailable[4] = 4
+coinsAvailable[5] = 3
+coinsAvailable[6] = 2
 //....
 //....
 
@@ -27,12 +34,13 @@ ini_open("levelData.ini")
 for(var i = 0; i < totalLevels; i++){
 	var levString = "Level-"+string(i)
 	levelData[i, 0] = ini_read_real(levString, "Cleared", 0)
-	levelData[i, 1] = ini_read_real(levString, "ClearTime", 0)
+	levelData[i, 1] = ini_read_real(levString, "ClearTimeMin", -1)
+	levelData[i, 2] = ini_read_real(levString, "ClearTimeSec", 0)
 	var coins = []
 	for(var c = 0; c < coinsAvailable[i]; c++){
 		coins[c] = ini_read_real(levString, "Collected:"+string(c), 0) 
 	}
-	levelData[i,2] = coins	
+	levelData[i,3] = coins	
 }
 
 ini_close()
@@ -45,6 +53,28 @@ enum Screen{
 	levelSelect
 }
 screen = Screen.title
+
+#region TEMP CODE
+
+if keyboard_check(ord("Q"))
+	levelData[0, 0] = 1
+	
+levelData[1, 0] = 1
+levelData[2, 0] = 1
+levelData[3, 0] = 1
+levelData[4, 0] = 1
+levelData[5, 0] = 1
+levelData[0, 1] = 1 levelData[0, 2] = 24 
+levelData[1, 1] = 1 levelData[1, 2] = 5
+levelData[2, 1] = 0 levelData[2, 2] = 42
+levelData[3, 1] = 1 levelData[3, 2] = 69
+levelData[4, 1] = 4 levelData[4, 2] = 20
+levelData[5, 1] = 0 levelData[5, 2] = 21
+levelData[1,3] = [0, 1]
+levelData[3,3] = [1, 0]
+levelData[4,3] = [1, 0, 1, 1]
+
+#endregion
 
 //Level Select Variables
 scrollPosHorizontal = 0
@@ -63,6 +93,12 @@ levelSelected = 0
 goToSlected = false
 
 levelSelectSurface = surface_create(1524, 734)
+
+newlySelectedTimer = 9
+
+doubleClickTimer = 0
+selectLevelSequence = false
+selectLevelTimer = 0
 
 frame = 0
 
@@ -105,6 +141,12 @@ for(var i = 0; i < totalLevels; i++){
 	levelName[i] = "Unset"	
 }
 
-levelName[0] = "Test Level"
+levelName[0] = "The first level!"
+levelName[1] = "Must be the second level"
+levelName[2] = "These are just..."
+levelName[3] = "Placehodler names"
+levelName[4] = "My teammates are awesome"
+levelName[5] = "Impossible level!"
+levelName[6] = "2hard4me"
 
 #endregion
