@@ -423,6 +423,22 @@
             }
         },
         {
+            "Key": "8055befd-72ce-4a03-b46a-28cf90fb162f",
+            "Value": {
+                "id": "012e390e-7ccf-4bdb-ba5a-130ef1b79f3d",
+                "resourcePath": "sounds\\BG_Music_2\\BG_Music_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "806b98f8-bcc3-4195-a6cc-db635103a62c",
+            "Value": {
+                "id": "29e2f284-5e0a-4b91-96fa-cada76a5bb83",
+                "resourcePath": "sounds\\BG_Music_1\\BG_Music_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "80a7098c-6202-44c6-9c2c-044eb370832e",
             "Value": {
                 "id": "d576f5b7-4f76-457c-bec1-1301d6082e9a",

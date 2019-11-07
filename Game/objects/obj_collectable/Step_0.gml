@@ -8,8 +8,11 @@ grav = 0.0;
 if(place_meeting(x,y,obj_player))
 {
 	if(!collected) //Only play sound once, upon actually collecting the item.
+	{
 		audio_play_sound(snd_gotCollectable, 1, false);
-	
+		global.levelCollected += 1;
+		global.totalCollected += 1;
+	}
 	collected = true;
 }
 

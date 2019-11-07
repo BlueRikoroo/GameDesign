@@ -12,4 +12,5 @@ draw_set_halign(fa_center);
 draw_text_transformed_color(1920/2, 50,"LEVEL COMPLETE!", 1, 1, 0, c1, c2, c3, c4, 1);
 draw_text_transformed_color(1920/2, 150,"COMPLETION TIME:   " + string(global.minutes) + ":" + string(global.seconds), 1, 1, 0, c1, c2, c3, c4, 1);
 draw_text_transformed_color(1920/2, 200,"DEATHS:   " + string(global.deaths), 1, 1, 0, c1, c2, c3, c4, 1);
+draw_text_transformed_color(1920/2, 350,"TOTAL COLLECTABLES FOUND: " + string(global.totalCollected), 1, 1, 0, c1, c2, c3, c4, 1);
 draw_text_transformed_color(1920/2, 500,"Press Enter To Continue...", 1, 1, 0, c1, c2, c3, c4, 1);
