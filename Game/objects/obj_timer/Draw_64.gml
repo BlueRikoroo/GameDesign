@@ -1,7 +1,7 @@
 draw_set_font(ft_time);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top)
-var time = "TIME - "+string(global.minutes)+":"+string(global.seconds);
+var time = "TIME - "+get_time(global.minutes,global.seconds);
 draw_set_color(c_black)
 draw_set_alpha(0.25)
 draw_rectangle(0, 0, 20 + string_width(time), 50, false)
