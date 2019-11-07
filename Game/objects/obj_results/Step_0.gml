@@ -5,6 +5,7 @@ if(keyboard_check_pressed(vk_enter))
 	global.seconds = 0;
 	global.deaths = 0;
 	global.timing = true;
+	global.levelCollected = 0;
 	room_goto(global.roomcounter + 1);
 	
 }
