@@ -4,3 +4,5 @@ enum Dir{
 	left = -1,
 	right = 1
 }
+
+debugMode = true
