@@ -17,3 +17,8 @@ character2 = noone
 camera = camera_create()
 view_camera[0] = camera
 camera_set_view_size(camera, 1920, 1080)
+
+char1X = 0
+char1Y = 0
+char2X = 0
+char2Y = 0

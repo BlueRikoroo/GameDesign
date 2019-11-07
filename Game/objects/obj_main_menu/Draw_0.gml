@@ -38,16 +38,30 @@ case Screen.levelSelect: #region
 	
 	var offset;
 	var ypos;
+	var array;
 	for(var i = 0; i < totalLevels; i++){
 		offset = cos(frame*0.02-0.2*i)*30
 		ypos = 180*i+417-scrollPosCurrentVerticle
-		draw_sprite(spr_levelPreview, i, 300+offset, ypos)
-		if levelSelected = i{
-			draw_sprite(spr_levelSelector, 0, 100+offset, ypos) 	
+		if levelSelected == i{
+			draw_sprite(spr_levelSelector, 0, 100+offset, ypos) 
+			if newlySelectedTimer > 0{
+				draw_set_color(c_yellow)
+				draw_set_alpha(newlySelectedTimer/30)
+				draw_rectangle(0,-100+ypos,1524,100+ypos, false)
+				draw_set_alpha(1)
+			}
 		}
+		draw_sprite(spr_levelPreview, i, 300+offset, ypos)
 		draw_set_color(c_white) draw_set_halign(fa_left) draw_set_valign(fa_middle)
 		draw_text_transformed_color(450+offset, ypos-25, levelName[i], 1, 1, 0, c1, c2, c3, c4, 1)
-		draw_text_transformed_color(450+offset, ypos+25, levelData[i, 1], 1, 1, 0, c1, c2, c3, c4, 1)
+		if levelData[i, 0] == 0
+			draw_text_transformed_color(450+offset, ypos+25, "Uncleared", 1, 1, 0, c1, c2, c3, c4, 1)
+		else
+			draw_text_transformed_color(450+offset, ypos+25, get_time(levelData[i, 1], levelData[i, 2]), 1, 1, 0, c1, c2, c3, c4, 1)
+		array = levelData[i,3]
+		for(var c = 0; c < coinsAvailable[i]; c++){
+			draw_sprite(spr_levelCollectableIcon, array[c], 800+offset+120*c, ypos)	
+		}
 	}
 	
 	gpu_set_blendmode(bm_subtract)
@@ -90,6 +104,19 @@ case Screen.levelSelect: #region
 		draw_text(xpos-scrollPosCurrentHorizontal, 325+offset + 25, string(i+1))
 		
 		draw_set_alpha(1)
+	}
+	
+	if selectLevelSequence{
+		var centerX = 200+300+cos(frame*0.02-0.2*levelSelected)*30	
+		var centerY = 350+180*levelSelected+417-scrollPosCurrentVerticle
+		var scale = 10*(1-(selectLevelTimer/80))
+		
+		draw_sprite_ext(spr_circleSpotlight, 0, centerX,centerY, scale,scale, 0, -1, 1)
+		draw_set_color(c_black)
+		draw_rectangle(0,0,centerX-150*scale,1080,false)
+		draw_rectangle(centerX+150*scale,0,1920,1080,false)
+		draw_rectangle(0,0,1980,centerY-150*scale,false)
+		draw_rectangle(0,centerY+150*scale,1980,1080,false)
 	}
 	
 	break #endregion

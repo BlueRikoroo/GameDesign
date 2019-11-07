@@ -5,4 +5,15 @@ enum Dir{
 	right = 1
 }
 
-debugMode = true
+debugMode = false
+
+stageTimer = -1
+enum Stage{
+	none, fadeIn, flash, warpIn, warpIn2, warpOut, warpOut2
+}
+stage = Stage.none
+
+warpPoint1x = 0
+warpPoint1y = 0
+warpPoint2x = 0
+warpPoint2y = 0
