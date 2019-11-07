@@ -18,9 +18,9 @@ global.coinsAvailable[0] = 1
 global.coinsAvailable[1] = 1
 global.coinsAvailable[2] = 2
 global.coinsAvailable[3] = 1
-global.coinsAvailable[4] = 0
-global.coinsAvailable[5] = 4
-global.coinsAvailable[6] = 0
+global.coinsAvailable[4] = 1
+global.coinsAvailable[5] = 0
+global.coinsAvailable[6] = 4
 //....
 //....
 

@@ -15,8 +15,10 @@ case 3:
 case 4:
 	room_goto(level_3)
 	break
-	
-case 6:
+case 5:
+	room_goto(rm_level_1)
+	break
+case 7:
 	room_goto(room_test)
 	break
 default:
