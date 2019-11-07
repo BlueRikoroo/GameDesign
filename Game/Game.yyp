@@ -79,11 +79,27 @@
             }
         },
         {
+            "Key": "0f355cca-a343-4db1-805b-4e3183265882",
+            "Value": {
+                "id": "d9c5dd39-19b2-47f9-b735-4cfcaa3eb62d",
+                "resourcePath": "rooms\\level_2\\level_2.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "15519ddb-f83a-4046-8d0c-15e001267788",
             "Value": {
                 "id": "b7e1c651-a638-483e-9b1e-e834f3130724",
                 "resourcePath": "sounds\\Girl_Fall\\Girl_Fall.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "165e62d2-99c3-4328-be40-9afcfce6bac4",
+            "Value": {
+                "id": "26d98b02-b8a5-4c3a-968b-d623af3f1e63",
+                "resourcePath": "sprites\\test_platform\\test_platform.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -103,6 +119,14 @@
             }
         },
         {
+            "Key": "208f30e3-61ff-4322-8d33-001451bdaa61",
+            "Value": {
+                "id": "4afcbcbf-d89c-45e8-be8e-0e42180fcb62",
+                "resourcePath": "sprites\\test_grassy_tiles\\test_grassy_tiles.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "25b2a6b3-fe5b-4408-91ac-2c8fa9f6aad1",
             "Value": {
                 "id": "f80bd9c1-04b6-4785-8548-f3cc4fad7e0f",
@@ -116,6 +140,14 @@
                 "id": "50c2c987-0f3b-412f-93ea-192c4a7f389f",
                 "resourcePath": "rooms\\level_3\\level_3.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "2bbfaf5e-44e1-4132-8298-0b0e4581d8d1",
+            "Value": {
+                "id": "5f109417-2d45-4c38-974e-5ad44b52f727",
+                "resourcePath": "tilesets\\tileset2\\tileset2.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -139,6 +171,14 @@
             "Value": {
                 "id": "c2492623-a0b5-4c8f-8aad-f11176b19ed5",
                 "resourcePath": "sprites\\col_32x32_bottom\\col_32x32_bottom.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "31ddd861-51b1-4eb8-8c27-23b530090748",
+            "Value": {
+                "id": "c3d1947f-c73e-4200-99a5-19e25c5ee4aa",
+                "resourcePath": "sprites\\test_cave_bg_dark\\test_cave_bg_dark.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -415,6 +455,14 @@
             }
         },
         {
+            "Key": "93005898-c464-4db8-a819-062dd8fa0c1e",
+            "Value": {
+                "id": "80863643-f317-4f80-a3b3-e609294fb3d2",
+                "resourcePath": "rooms\\level_1\\level_1.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "9858efab-8049-494c-86cb-9c7e5689c9aa",
             "Value": {
                 "id": "9d1a832c-1902-4b6a-9e4a-3490836e9949",
@@ -492,6 +540,14 @@
                 "id": "1e0c0f2f-1f31-4803-a737-5cd2bd84f505",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "ab6af5d5-a661-4dba-b082-eacd8e2e5af0",
+            "Value": {
+                "id": "cd8c5912-eebf-42a6-8e4b-a9ec9551d68f",
+                "resourcePath": "tilesets\\hmm\\hmm.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
