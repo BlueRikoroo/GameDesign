@@ -12,6 +12,7 @@ if(place_meeting(x,y,obj_player))
 		audio_play_sound(snd_gotCollectable, 1, false);
 		global.levelCollected += 1;
 		global.totalCollected += 1;
+		obj_frame.coinsCollected[slot] = 1
 	}
 	collected = true;
 }

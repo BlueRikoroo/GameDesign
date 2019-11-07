@@ -59,7 +59,7 @@ case Screen.levelSelect: #region
 		else
 			draw_text_transformed_color(450+offset, ypos+25, get_time(levelData[i, 1], levelData[i, 2]), 1, 1, 0, c1, c2, c3, c4, 1)
 		array = levelData[i,3]
-		for(var c = 0; c < coinsAvailable[i]; c++){
+		for(var c = 0; c < global.coinsAvailable[i]; c++){
 			draw_sprite(spr_levelCollectableIcon, array[c], 800+offset+120*c, ypos)	
 		}
 	}

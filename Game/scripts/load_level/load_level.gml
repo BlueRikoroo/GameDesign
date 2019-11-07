@@ -9,4 +9,23 @@ case 1:
 case 2:
 	room_goto(level_2)
 	break
+case 3:
+	room_goto(room_example5)
+	break
+case 4:
+	room_goto(level_3)
+	break
+	
+case 6:
+	room_goto(room_test)
+	break
+default:
+	room_goto(rm_start)
+	global.currentLevel = -1
+}
+
+if global.currentLevel >= 0{
+	for(var i = 0; i < global.coinsAvailable[global.currentLevel]; i++)
+		obj_frame.coinsCollected[i] = 0
+	global.timing = true
 }

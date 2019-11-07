@@ -17,3 +17,5 @@ warpPoint1x = 0
 warpPoint1y = 0
 warpPoint2x = 0
 warpPoint2y = 0
+
+coinsCollected = []

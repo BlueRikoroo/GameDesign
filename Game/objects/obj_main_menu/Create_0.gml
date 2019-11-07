@@ -8,19 +8,19 @@ levelData = noone;
 //Level Data is a double array.
 //[x, ] = the level, 0->totalLevels
 //[, x] = the value, 0=cleared(0 or 1), 1=clearTimeMin, 2=clearTimeSec, 3=coinArray, 
-coinsAvailable = noone;
+global.coinsAvailable = noone;
 //[x] = how many coins are available in each level
 for(var i = 0; i < totalLevels; i++)
-	coinsAvailable[i] = 0 //Default Value
+	global.coinsAvailable[i] = 0 //Default Value
 #region Get Coins Available
 
-coinsAvailable[0] = 1
-coinsAvailable[1] = 2
-coinsAvailable[2] = 0
-coinsAvailable[3] = 2
-coinsAvailable[4] = 4
-coinsAvailable[5] = 3
-coinsAvailable[6] = 2
+global.coinsAvailable[0] = 1
+global.coinsAvailable[1] = 1
+global.coinsAvailable[2] = 2
+global.coinsAvailable[3] = 1
+global.coinsAvailable[4] = 0
+global.coinsAvailable[5] = 4
+global.coinsAvailable[6] = 0
 //....
 //....
 
@@ -32,12 +32,12 @@ coinsAvailable[6] = 2
 ini_open("levelData.ini")
 
 for(var i = 0; i < totalLevels; i++){
-	var levString = "Level-"+string(i)
+	var levString = "Level-"+string(i+1)
 	levelData[i, 0] = ini_read_real(levString, "Cleared", 0)
 	levelData[i, 1] = ini_read_real(levString, "ClearTimeMin", -1)
 	levelData[i, 2] = ini_read_real(levString, "ClearTimeSec", 0)
 	var coins = []
-	for(var c = 0; c < coinsAvailable[i]; c++){
+	for(var c = 0; c < global.coinsAvailable[i]; c++){
 		coins[c] = ini_read_real(levString, "Collected:"+string(c), 0) 
 	}
 	levelData[i,3] = coins	
@@ -59,20 +59,9 @@ screen = Screen.title
 if keyboard_check(ord("Q"))
 	levelData[0, 0] = 1
 	
-levelData[1, 0] = 1
-levelData[2, 0] = 1
-levelData[3, 0] = 1
-levelData[4, 0] = 1
-levelData[5, 0] = 1
-levelData[0, 1] = 1 levelData[0, 2] = 24 
-levelData[1, 1] = 1 levelData[1, 2] = 5
-levelData[2, 1] = 0 levelData[2, 2] = 42
-levelData[3, 1] = 1 levelData[3, 2] = 69
-levelData[4, 1] = 4 levelData[4, 2] = 20
-levelData[5, 1] = 0 levelData[5, 2] = 21
-levelData[1,3] = [0, 1]
-levelData[3,3] = [1, 0]
-levelData[4,3] = [1, 0, 1, 1]
+if keyboard_check(ord("D"))
+	obj_frame.debugMode = true
+	
 
 #endregion
 

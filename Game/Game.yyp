@@ -127,6 +127,14 @@
             }
         },
         {
+            "Key": "2058b5a2-9729-4ebb-8099-0185ae9cbb3d",
+            "Value": {
+                "id": "92ff1534-3b5c-4485-9d0b-1cbbf05f444f",
+                "resourcePath": "scripts\\save_level\\save_level.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "208f30e3-61ff-4322-8d33-001451bdaa61",
             "Value": {
                 "id": "4afcbcbf-d89c-45e8-be8e-0e42180fcb62",
@@ -291,6 +299,14 @@
             "Value": {
                 "id": "08771ac7-69b0-4139-9ae1-cda94b443d75",
                 "resourcePath": "scripts\\get_time\\get_time.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5e0e9237-21a4-4349-b6c0-c4898ba7362a",
+            "Value": {
+                "id": "cd2142a2-b9c6-4c4c-a2fb-19417e3f0915",
+                "resourcePath": "scripts\\save_coin\\save_coin.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -663,6 +679,14 @@
             }
         },
         {
+            "Key": "c1d9e16b-77e1-4147-8e86-e26f6f384116",
+            "Value": {
+                "id": "5f2033af-bb60-4d58-b009-a033f825472b",
+                "resourcePath": "scripts\\save_time\\save_time.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c42a1d16-e608-4022-a522-466b9c5e5b72",
             "Value": {
                 "id": "152b4b76-75f7-4058-a2ad-5da5531a9fea",
@@ -880,7 +904,10 @@
         "b13b567d-7cc0-4807-9d82-fdc3b2a8050e",
         "2295027b-1c3a-4d1a-8abc-a4b9509ef2ec",
         "ab559595-8f15-45f5-9097-011ddada96b7",
-        "5d8464c6-d7dd-4749-9a3e-e55c2c49009e"
+        "5d8464c6-d7dd-4749-9a3e-e55c2c49009e",
+        "5e0e9237-21a4-4349-b6c0-c4898ba7362a",
+        "2058b5a2-9729-4ebb-8099-0185ae9cbb3d",
+        "c1d9e16b-77e1-4147-8e86-e26f6f384116"
     ],
     "tutorial": ""
 }

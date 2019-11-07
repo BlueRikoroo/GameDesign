@@ -1,7 +1,8 @@
 var grav = 0.6
 #region Gravity
 
-vspeed += grav
+if enableGravity
+	vspeed += grav
 
 #endregion
 #region Rope Collision

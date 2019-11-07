@@ -8,7 +8,7 @@ case Screen.title: #region
 
 	if(keyboard_check_pressed(vk_enter)){
 		if levelData[0, 0] == 0{
-			room_goto(room_next(room));
+			load_level(1)
 			audio_stop_sound(Title_Screen);
 			audio_play_sound(Warp_Sound,10,false);
 			global.timing = true;
@@ -149,4 +149,12 @@ repeat(5){
 	part_emitter_burst(partSystem, rightEmitter, rightParticle, 1)
 }
 
+#endregion
+
+#region Delete All Data if Debug Mode is On
+
+if obj_frame.debugMode and keyboard_check_pressed(ord("E")){
+	file_delete("levelData.ini")
+	game_restart()
+}
 #endregion

@@ -58,6 +58,28 @@ if keyboard_check(c_jump) and vspeed >= -2{
 
 #endregion
 
+#region Grab Handle Movement
+
+enableGravity = true
+var grabbing = (place_meeting(x,y,obj_Handle) and !holdingItem and keyboard_check(c_grab))
+if grabbing{
+	var climbHori = 1
+	var climbVert = climbHori
+	hspeed = 0
+	vspeed = 0
+	enableGravity = false
+	if keyboard_check(c_left)
+		hspeed = -climbHori
+	else if keyboard_check(c_right)
+		hspeed = climbHori
+	else if keyboard_check(c_jump)
+		vspeed = -climbVert
+	else if keyboard_check(c_down)
+		vspeed = climbVert
+}
+
+#endregion
+
 #region Wall Jump
 
 if (canWallJump){
@@ -75,10 +97,15 @@ if (canWallJump){
 // Inherit the parent event
 event_inherited();
 
-#region Grab handle
+#region Grab handle Velocity Stop
 
-if (place_meeting(x,y,obj_Handle) and !holdingItem){
-	if keyboard_check(c_grab){
+if grabbing{
+	var climbHori = 1
+	var climbVert = climbHori
+	if !(keyboard_check(c_left) or
+	  keyboard_check(c_right) or
+  	  keyboard_check(c_jump) or
+	  keyboard_check(c_down)){
 		hspeed = 0	
 		vspeed = 0
 	}
