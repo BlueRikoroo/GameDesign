@@ -27,7 +27,7 @@ default:
 }
 
 if global.currentLevel >= 0{
-	for(var i = 0; i < global.coinsAvailable[global.currentLevel]; i++)
+	for(var i = 0; i < global.coinsAvailable[global.currentLevel-1]; i++)
 		obj_frame.coinsCollected[i] = 0
 	global.timing = true
 }
