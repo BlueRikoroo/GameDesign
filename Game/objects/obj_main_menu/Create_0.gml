@@ -1,4 +1,5 @@
 /// @description 
+randomize()
 global.currentLevel = 0
 #region File Loading
 // README: Any value that is a VAR is editable

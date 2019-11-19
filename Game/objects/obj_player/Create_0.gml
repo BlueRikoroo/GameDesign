@@ -15,6 +15,7 @@ groundSpeed = 5
 jumpSpeed = 20
 accelVal = 0.3
 faceingDirection = Dir.right //1 for right, -1 for left
+relHoriSpeed = 0 //Relative speed gained from platforms
 
 #endregion
 #region Abilities

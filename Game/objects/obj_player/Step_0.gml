@@ -6,7 +6,7 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	}
 }
 
-var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and place_meeting(x,y+1,obj_crate) or place_meeting(x,y+1,obj_Platform))
+var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and (place_meeting(x,y+1,obj_crate) or place_meeting(x,y+1,obj_Platform)))
 
 #region Jump
 
@@ -57,7 +57,6 @@ if keyboard_check(c_jump) and vspeed >= -2{
 }
 
 #endregion
-
 #region Grab Handle Movement
 
 enableGravity = true
@@ -159,8 +158,6 @@ if canPushWall{
 }
 
 #endregion
-
-
 #region Standing on Crate
 
 if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
@@ -186,49 +183,27 @@ if(vspeed > 0 and place_meeting(x,y+vspeed,obj_crate)){
 }
 
 #endregion
-
 #region Moving Platform Interaction
 
-
-if(place_meeting(x,y+1,obj_Platform))
-{
+vertical_collision(obj_Platform)
+if(place_meeting(x,y+1,obj_Platform)){
 	var Pinstance = instance_place(x, y+1, obj_Platform);
-	if(Pinstance.Horizontal_Platform = true)
-	{
+	if(Pinstance.Horizontal_Platform = true){
 		vspeed = 0;
-		if keyboard_check_pressed(c_jump) and onGround
-		{	
-		vspeed -= jumpSpeed
+		if keyboard_check_pressed(c_jump) and onGround{	
+			vspeed -= jumpSpeed
 		}
-		hspeed = Pinstance.horizontal_speed * Pinstance.dir;
-	
-		if keyboard_check(c_right)
-		{
-		faceingDirection = Dir.right
-		if onGround
-			hspeed = min(hspeed + accelVal*5, groundSpeed)
-		else if hspeed < groundSpeed
-			hspeed += accelVal*5
-		}
-		else if keyboard_check(c_left)
-		{
-			faceingDirection = Dir.left
-			if onGround
-				hspeed = max(hspeed - accelVal*5, -groundSpeed)
-			else if hspeed > -groundSpeed
-				hspeed -= accelVal*5
-		}
-	}
-	else
-	{
+		relHoriSpeed = Pinstance.horizontal_speed * Pinstance.dir;
+	}else{
 		vertical_collision(Pinstance);
 		vspeed = Pinstance.vertical_speed * Pinstance.dir;
-		if keyboard_check_pressed(c_jump) and onGround
-		{	
-		vspeed -= jumpSpeed
+		if keyboard_check_pressed(c_jump) and onGround{	
+			vspeed -= jumpSpeed
 		}
 	}
 }
+horizontal_collision(obj_Platform)
+	
 #endregion
 #region Landing Sound
 var curr_coll = place_meeting(x,y+1,par_wall);
@@ -238,5 +213,12 @@ if ( (curr_coll==1) && (prev_coll==0) )
 {
     audio_play_sound(landSound,5,false);
 }
+
+#endregion
+#region Relative Speed
+
+//THIS SECTION NEEDS TO GO LAST
+//Nothing Modifying HSPEED should go after this
+hspeed += relHoriSpeed
 
 #endregion
