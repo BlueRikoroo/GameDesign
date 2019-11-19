@@ -7,3 +7,4 @@ y2 = 0
 length = 0
 maxReached = false
 maxLength = 100
+tempMaxReduction = 0

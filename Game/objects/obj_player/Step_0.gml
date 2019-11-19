@@ -6,7 +6,7 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 	}
 }
 
-var onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and (place_meeting(x,y+1,obj_crate) or place_meeting(x,y+1,obj_Platform)))
+onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and (place_meeting(x,y+1,obj_crate) or place_meeting(x,y+1,obj_Platform)))
 
 #region Jump
 
@@ -204,6 +204,23 @@ if(place_meeting(x,y+1,obj_Platform)){
 }
 horizontal_collision(obj_Platform)
 	
+#endregion
+#region Rope Climb if Dangling
+
+var ropeSpeed = 4
+if !onGround{
+	if keyboard_check(c_jump) and attached_obj[0].onGround and rope_obj[0].maxLength > 150{
+		rope_obj[0].tempMaxReduction += ropeSpeed
+		rope_obj[0].maxLength -= ropeSpeed
+	}else if rope_obj[0].tempMaxReduction > 0{
+		rope_obj[0].tempMaxReduction -= ropeSpeed
+		rope_obj[0].maxLength += ropeSpeed
+	}
+}else if attached_obj[0].onGround and rope_obj[0].tempMaxReduction > 0{
+	rope_obj[0].tempMaxReduction -= ropeSpeed
+	rope_obj[0].maxLength += ropeSpeed
+}
+
 #endregion
 #region Landing Sound
 var curr_coll = place_meeting(x,y+1,par_wall);
