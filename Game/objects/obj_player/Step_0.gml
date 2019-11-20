@@ -209,7 +209,7 @@ horizontal_collision(obj_Platform)
 
 var ropeSpeed = 4
 if !onGround{
-	if keyboard_check(c_jump) and attached_obj[0].onGround and rope_obj[0].maxLength > 150{
+	if keyboard_check(c_jump) and attached_obj[0].onGround and rope_obj[0].maxLength > 150 and rope_obj[0].length + 5 > rope_obj[0].maxLength{
 		rope_obj[0].tempMaxReduction += ropeSpeed
 		rope_obj[0].maxLength -= ropeSpeed
 	}else if rope_obj[0].tempMaxReduction > 0{
