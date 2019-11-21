@@ -139,6 +139,20 @@
             "value": "0",
             "varName": "Horizontal_Platform",
             "varType": 3
+        },
+        {
+            "id": "6e5c336c-c38e-4d7f-8092-11e6b4a0eb1f",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "pWait",
+            "varType": 3
         }
     ],
     "solid": false,
