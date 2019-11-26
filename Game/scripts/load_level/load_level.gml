@@ -21,6 +21,9 @@ case 5:
 case 7:
 	room_goto(JT_level)
 	break
+case 8:
+	room_goto(room_finalChallenge)
+	break
 default:
 	room_goto(rm_start)
 	global.currentLevel = -1

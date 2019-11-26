@@ -19,3 +19,5 @@ warpPoint2x = 0
 warpPoint2y = 0
 
 coinsCollected = []
+
+credits = false

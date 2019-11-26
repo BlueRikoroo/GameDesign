@@ -1,18 +1,30 @@
-if(Horizontal_Platform = true)
-{
-	x += horizontal_speed * dir;
+horizontal_collision(obj_player);
+vertical_collision(obj_player);
 
-	if( x < x_position_from || x > x_position_to)
+if(pWait = false)
+{
+	if(Horizontal_Platform = true)
 	{
-		dir *= -1;
+		x += horizontal_speed * dir;
+
+		if( x < x_position_from || x > x_position_to)
+		{
+			dir *= -1;
+		}
 	}
-}
-else
-{
-	y += vertical_speed * dir;
-
-	if( y < y_position_from ||  y > y_position_to)
+	else
 	{
-		dir *= -1;
-	}	
+		y += vertical_speed * dir;
+		show_debug_message("Vert Speed: " + string(vertical_speed) + " Dir: " + string(dir))
+		if( y < y_position_from ||  y > y_position_to)
+		{
+			dir *= -1;
+		}	
+	}
+	
 }
+
+else if(place_meeting(x,y-1 ,obj_player))
+	{
+		pWait = false
+	}

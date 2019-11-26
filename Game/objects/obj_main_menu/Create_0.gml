@@ -1,10 +1,9 @@
-/// @description 
 randomize()
 global.currentLevel = 0
 #region File Loading
 // README: Any value that is a VAR is editable
 
-totalLevels = 7
+totalLevels = 8
 levelData = noone;
 //Level Data is a double array.
 //[x, ] = the level, 0->totalLevels
@@ -20,8 +19,9 @@ global.coinsAvailable[1] = 1
 global.coinsAvailable[2] = 2
 global.coinsAvailable[3] = 1
 global.coinsAvailable[4] = 1
-global.coinsAvailable[5] = 0
-global.coinsAvailable[6] = 4
+global.coinsAvailable[5] = 2
+global.coinsAvailable[6] = 0
+global.coinsAvailable[7] = 0
 //....
 //....
 
@@ -131,12 +131,13 @@ for(var i = 0; i < totalLevels; i++){
 	levelName[i] = "Unset"	
 }
 
-levelName[0] = "The first level!"
-levelName[1] = "Must be the second level"
-levelName[2] = "These are just..."
-levelName[3] = "Placehodler names"
-levelName[4] = "My teammates are awesome"
-levelName[5] = "Impossible level!"
+levelName[0] = "The Beginning of the End"
+levelName[1] = "In the Swing of Things"
+levelName[2] = "Different Strengths"
+levelName[3] = "Teamwork is so Crate"
+levelName[4] = "Be Cautious"
+levelName[5] = "Hang in There"
 levelName[6] = "2hard4me"
+levelName[7] = "The Final Ascension"
 
 #endregion

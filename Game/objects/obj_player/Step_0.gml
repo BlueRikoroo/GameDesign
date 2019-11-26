@@ -1,3 +1,5 @@
+
+
 var maxRope = false
 for(var i = 0; i < array_length_1d(rope_obj); i++){
 	if instance_exists(rope_obj[i]) and rope_obj[i].maxReached{
@@ -8,11 +10,24 @@ for(var i = 0; i < array_length_1d(rope_obj); i++){
 
 onGround = place_meeting(x,y+1,par_wall) or (vspeed == 0 and (place_meeting(x,y+1,obj_crate) or place_meeting(x,y+1,obj_Platform)))
 
+#region Animations
+
+if onGround and hspeed == 0
+	player_playAnimation(Anim.idle)	
+else if vspeed > 0
+	player_playAnimation(Anim.falling)
+
+if sprite_index = anim_jumping{
+	player_playAnimation(Anim.jumping)	
+}
+
+#endregion
 #region Jump
 
 if keyboard_check_pressed(c_jump) and onGround{	
 	vspeed -= jumpSpeed
 	audio_play_sound(jumpSound,5,false);
+	player_playAnimation(Anim.jumping)
 }
 #endregion
 
@@ -20,22 +35,26 @@ if keyboard_check_pressed(c_jump) and onGround{
 
 if keyboard_check(c_right){
 	faceingDirection = Dir.right
-	if onGround
+	if onGround{
 		hspeed = min(hspeed + accelVal, groundSpeed)
-	else if hspeed < groundSpeed
+		player_playAnimation(Anim.moving)
+	}else if hspeed < groundSpeed
 		hspeed += accelVal
 }
 else if keyboard_check(c_left){
 	faceingDirection = Dir.left
-	if onGround
+	if onGround{
 		hspeed = max(hspeed - accelVal, -groundSpeed)
-	else if hspeed > -groundSpeed
+		player_playAnimation(Anim.moving)
+	}else if hspeed > -groundSpeed
 		hspeed -= accelVal
 }else if (onGround or !maxRope){
 	if abs(hspeed) < 1
 		hspeed = 0
-	else
+	else{
+		player_playAnimation(Anim.moving)
 		hspeed -= sign(hspeed)*0.3
+	}
 }
 
 #endregion
@@ -51,6 +70,7 @@ if keyboard_check(c_jump) and vspeed >= -2{
 			if ((keyboard_check(c_left) and attached_obj[i].x < x and place_meeting(x-1,y,par_wall))
 			  or (keyboard_check(c_right) and attached_obj[i].x > x and place_meeting(x+1,y,par_wall))){
 				vspeed = -2
+				player_playAnimation(Anim.climbingWall)
 			}
 		}
 	}
@@ -60,7 +80,7 @@ if keyboard_check(c_jump) and vspeed >= -2{
 #region Grab Handle Movement
 
 enableGravity = true
-var grabbing = (place_meeting(x,y,obj_Handle) and !holdingItem and keyboard_check(c_grab))
+grabbing = (place_meeting(x,y,obj_Handle) and !holdingItem and keyboard_check(c_grab))
 if grabbing{
 	var climbHori = 1
 	var climbVert = climbHori
@@ -75,6 +95,7 @@ if grabbing{
 		vspeed = -climbVert
 	else if keyboard_check(c_down)
 		vspeed = climbVert
+	player_playAnimation(Anim.hangingOnHandle)
 }
 
 #endregion
@@ -85,10 +106,12 @@ if (canWallJump){
 	if (keyboard_check_pressed(c_right) and place_meeting(x-1,y,par_wall) and !onGround){
 		hspeed = groundSpeed
 		vspeed = -jumpSpeed
+		player_playAnimation(Anim.jumping)
 	}
 	if (keyboard_check_pressed(c_left) and place_meeting(x+1,y,par_wall) and !onGround){
 		hspeed = -groundSpeed
 		vspeed = -jumpSpeed
+		player_playAnimation(Anim.jumping)
 	}
 }
 
@@ -124,9 +147,14 @@ if keyboard_check_pressed(c_grab_crate)
 			parent = other
 			other.holdingItem = true
 		}
+		if heldItem != noone
+			player_playAnimation(Anim.holdingCrate)
 	}
 	else
 	{
+		if (heldItem != noone){
+			sprite_index = anim_default
+		}
 		heldItem.parent = noone
 		heldItem = noone
 		holdingItem = false
@@ -197,7 +225,7 @@ if(place_meeting(x,y+1,obj_Platform)){
 	}else{
 		vertical_collision(Pinstance);
 		vspeed = Pinstance.vertical_speed * Pinstance.dir;
-		if keyboard_check_pressed(c_jump) and onGround{	
+		if keyboard_check_pressed(c_jump){	
 			vspeed -= jumpSpeed
 		}
 	}
@@ -207,18 +235,26 @@ horizontal_collision(obj_Platform)
 #endregion
 #region Rope Climb if Dangling
 
-var ropeSpeed = 4
-if !onGround{
-	if keyboard_check(c_jump) and attached_obj[0].onGround and rope_obj[0].maxLength > 150 and rope_obj[0].length + 5 > rope_obj[0].maxLength{
-		rope_obj[0].tempMaxReduction += ropeSpeed
-		rope_obj[0].maxLength -= ropeSpeed
-	}else if rope_obj[0].tempMaxReduction > 0{
+if instance_exists(attached_obj[0]) and instance_exists(rope_obj[0]){
+	var ropeSpeed = 4
+	if !onGround and !grabbing{
+		if keyboard_check(c_jump) and (attached_obj[0].onGround or attached_obj[0].grabbing)
+		  and !place_meeting(x-1,y,par_wall) and !place_meeting(x+1,y,par_wall){
+			if rope_obj[0].maxLength > 150 and rope_obj[0].length + 10 > rope_obj[0].maxLength {
+				rope_obj[0].tempMaxReduction += ropeSpeed
+				rope_obj[0].maxLength -= ropeSpeed
+				player_playAnimation(Anim.pullingSelfUpRope)
+			}
+		}else if rope_obj[0].tempMaxReduction > 0{
+			rope_obj[0].tempMaxReduction -= ropeSpeed
+			rope_obj[0].maxLength += ropeSpeed
+			if (sprite_index = anim_pullingSelfUpRope) sprite_index = anim_falling
+		}
+	}else if (attached_obj[0].onGround or attached_obj[0].grabbing) and rope_obj[0].tempMaxReduction > 0{
 		rope_obj[0].tempMaxReduction -= ropeSpeed
 		rope_obj[0].maxLength += ropeSpeed
+		if (sprite_index = anim_pullingSelfUpRope) sprite_index = anim_falling
 	}
-}else if attached_obj[0].onGround and rope_obj[0].tempMaxReduction > 0{
-	rope_obj[0].tempMaxReduction -= ropeSpeed
-	rope_obj[0].maxLength += ropeSpeed
 }
 
 #endregion
@@ -228,7 +264,8 @@ var prev_coll = place_meeting(xprevious,yprevious+1,par_wall);
 
 if ( (curr_coll==1) && (prev_coll==0) )
 {
-    audio_play_sound(landSound,5,false);
+    var snd = audio_play_sound(landSound,5,false);
+	audio_sound_gain(snd, 0.5, 0)
 }
 
 #endregion
