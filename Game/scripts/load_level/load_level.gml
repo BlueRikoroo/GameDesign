@@ -7,16 +7,19 @@ case 1:
 	room_goto(level_1)
 	break
 case 2:
-	room_goto(level_2)
-	break
-case 3:
 	room_goto(room_example5)
 	break
-case 4:
+case 3:
 	room_goto(level_3)
+	break
+case 4:
+	room_goto(level_2)
 	break
 case 5:
 	room_goto(rm_level_1)
+	break
+case 6:
+	room_goto(rm_level_4)
 	break
 case 7:
 	room_goto(room_JT)

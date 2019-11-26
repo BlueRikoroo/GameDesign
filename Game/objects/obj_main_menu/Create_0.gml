@@ -1,3 +1,15 @@
+#region TEMP CODE
+
+if keyboard_check(ord("Q"))
+	file_delete("levelData.ini")
+	
+if keyboard_check(ord("D"))
+	obj_frame.debugMode = true
+	
+
+#endregion
+
+
 randomize()
 global.currentLevel = 0
 #region File Loading
@@ -15,13 +27,13 @@ for(var i = 0; i < totalLevels; i++)
 #region Get Coins Available
 
 global.coinsAvailable[0] = 1
-global.coinsAvailable[1] = 1
-global.coinsAvailable[2] = 2
+global.coinsAvailable[1] = 2
+global.coinsAvailable[2] = 1
 global.coinsAvailable[3] = 1
 global.coinsAvailable[4] = 1
 global.coinsAvailable[5] = 2
 global.coinsAvailable[6] = 2
-global.coinsAvailable[7] = 0
+global.coinsAvailable[7] = 6
 //....
 //....
 
@@ -42,6 +54,11 @@ for(var i = 0; i < totalLevels; i++){
 		coins[c] = ini_read_real(levString, "Collected:"+string(c), 0) 
 	}
 	levelData[i,3] = coins	
+	
+	if i > 0 and i < totalLevels-1 and !levelData[i, 0] and !obj_frame.debugMode{
+		totalLevels = i+1
+		break
+	}
 }
 
 ini_close()
@@ -55,16 +72,7 @@ enum Screen{
 }
 screen = Screen.title
 
-#region TEMP CODE
 
-if keyboard_check(ord("Q"))
-	levelData[0, 0] = 1
-	
-if keyboard_check(ord("D"))
-	obj_frame.debugMode = true
-	
-
-#endregion
 
 //Level Select Variables
 scrollPosHorizontal = 0
@@ -80,7 +88,6 @@ scrollMaxHorizontal = totalLevels * 90 - 300
 scrollMaxVertical = totalLevels * 417
 
 levelSelected = 0
-goToSlected = false
 
 levelSelectSurface = surface_create(1524, 734)
 
