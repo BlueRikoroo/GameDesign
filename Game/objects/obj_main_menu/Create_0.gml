@@ -1,10 +1,9 @@
-/// @description 
 randomize()
 global.currentLevel = 0
 #region File Loading
 // README: Any value that is a VAR is editable
 
-totalLevels = 7
+totalLevels = 8
 levelData = noone;
 //Level Data is a double array.
 //[x, ] = the level, 0->totalLevels
@@ -22,6 +21,7 @@ global.coinsAvailable[3] = 1
 global.coinsAvailable[4] = 1
 global.coinsAvailable[5] = 2
 global.coinsAvailable[6] = 0
+global.coinsAvailable[7] = 0
 //....
 //....
 
@@ -138,5 +138,6 @@ levelName[3] = "Teamwork is so Crate"
 levelName[4] = "Be Cautious"
 levelName[5] = "Hang in There"
 levelName[6] = "2hard4me"
+levelName[7] = "The Final Ascension"
 
 #endregion

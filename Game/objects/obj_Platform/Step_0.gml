@@ -15,7 +15,7 @@ if(pWait = false)
 	else
 	{
 		y += vertical_speed * dir;
-
+		show_debug_message("Vert Speed: " + string(vertical_speed) + " Dir: " + string(dir))
 		if( y < y_position_from ||  y > y_position_to)
 		{
 			dir *= -1;
