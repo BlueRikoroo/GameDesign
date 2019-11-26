@@ -18,6 +18,7 @@ case 2:
 	var text = "Programming"
 	text+="\nAaron Kendrick"
 	text+="\nZach B."
+	text+="\nJW Banks"
 	draw_text_transformed_color(
 		room_width/2, room_height/2, text, 2, 2, 0,
 		c,c1,c2,c3,1
