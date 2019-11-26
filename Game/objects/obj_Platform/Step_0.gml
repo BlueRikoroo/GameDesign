@@ -1,6 +1,5 @@
 horizontal_collision(obj_player);
 vertical_collision(obj_player);
-if(Horizontal_Platform = true)
 
 if(pWait = false)
 {

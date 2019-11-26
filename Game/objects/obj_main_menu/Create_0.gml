@@ -20,8 +20,8 @@ global.coinsAvailable[1] = 1
 global.coinsAvailable[2] = 2
 global.coinsAvailable[3] = 1
 global.coinsAvailable[4] = 1
-global.coinsAvailable[5] = 0
-global.coinsAvailable[6] = 4
+global.coinsAvailable[5] = 2
+global.coinsAvailable[6] = 0
 //....
 //....
 
