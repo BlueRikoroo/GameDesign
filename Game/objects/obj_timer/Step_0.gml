@@ -19,6 +19,7 @@ if(room != rm_splash and room != rm_start and global.wait <= 0)
 		global.wait = 253.3;
 	
 }
-global.wait -= 1/60;
+if room != rm_splash
+	global.wait -= 1/60;
 
 

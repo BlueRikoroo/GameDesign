@@ -235,24 +235,26 @@ horizontal_collision(obj_Platform)
 #endregion
 #region Rope Climb if Dangling
 
-var ropeSpeed = 4
-if !onGround and !grabbing{
-	if keyboard_check(c_jump) and (attached_obj[0].onGround or attached_obj[0].grabbing)
-	  and !place_meeting(x-1,y,par_wall) and !place_meeting(x+1,y,par_wall){
-		if rope_obj[0].maxLength > 150 and rope_obj[0].length + 10 > rope_obj[0].maxLength {
-			rope_obj[0].tempMaxReduction += ropeSpeed
-			rope_obj[0].maxLength -= ropeSpeed
-			player_playAnimation(Anim.pullingSelfUpRope)
+if instance_exists(attached_obj[0]) and instance_exists(rope_obj[0]){
+	var ropeSpeed = 4
+	if !onGround and !grabbing{
+		if keyboard_check(c_jump) and (attached_obj[0].onGround or attached_obj[0].grabbing)
+		  and !place_meeting(x-1,y,par_wall) and !place_meeting(x+1,y,par_wall){
+			if rope_obj[0].maxLength > 150 and rope_obj[0].length + 10 > rope_obj[0].maxLength {
+				rope_obj[0].tempMaxReduction += ropeSpeed
+				rope_obj[0].maxLength -= ropeSpeed
+				player_playAnimation(Anim.pullingSelfUpRope)
+			}
+		}else if rope_obj[0].tempMaxReduction > 0{
+			rope_obj[0].tempMaxReduction -= ropeSpeed
+			rope_obj[0].maxLength += ropeSpeed
+			if (sprite_index = anim_pullingSelfUpRope) sprite_index = anim_falling
 		}
-	}else if rope_obj[0].tempMaxReduction > 0{
+	}else if (attached_obj[0].onGround or attached_obj[0].grabbing) and rope_obj[0].tempMaxReduction > 0{
 		rope_obj[0].tempMaxReduction -= ropeSpeed
 		rope_obj[0].maxLength += ropeSpeed
 		if (sprite_index = anim_pullingSelfUpRope) sprite_index = anim_falling
 	}
-}else if (attached_obj[0].onGround or attached_obj[0].grabbing) and rope_obj[0].tempMaxReduction > 0{
-	rope_obj[0].tempMaxReduction -= ropeSpeed
-	rope_obj[0].maxLength += ropeSpeed
-	if (sprite_index = anim_pullingSelfUpRope) sprite_index = anim_falling
 }
 
 #endregion
