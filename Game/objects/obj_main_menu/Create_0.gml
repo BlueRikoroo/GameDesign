@@ -20,7 +20,7 @@ global.coinsAvailable[2] = 2
 global.coinsAvailable[3] = 1
 global.coinsAvailable[4] = 1
 global.coinsAvailable[5] = 2
-global.coinsAvailable[6] = 0
+global.coinsAvailable[6] = 2
 global.coinsAvailable[7] = 0
 //....
 //....
@@ -137,7 +137,7 @@ levelName[2] = "Different Strengths"
 levelName[3] = "Teamwork is so Crate"
 levelName[4] = "Be Cautious"
 levelName[5] = "Hang in There"
-levelName[6] = "2hard4me"
+levelName[6] = "Mysterious Cave"
 levelName[7] = "The Final Ascension"
 
 #endregion
