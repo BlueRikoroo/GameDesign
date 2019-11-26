@@ -225,7 +225,7 @@ if(place_meeting(x,y+1,obj_Platform)){
 	}else{
 		vertical_collision(Pinstance);
 		vspeed = Pinstance.vertical_speed * Pinstance.dir;
-		if keyboard_check_pressed(c_jump) and onGround{	
+		if keyboard_check_pressed(c_jump){	
 			vspeed -= jumpSpeed
 		}
 	}
