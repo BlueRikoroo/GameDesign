@@ -367,6 +367,14 @@
             }
         },
         {
+            "Key": "60dc6526-8b71-4a78-a8a1-cc3b260cfcf4",
+            "Value": {
+                "id": "7463d41d-a32e-4f06-b509-b23dac10d32b",
+                "resourcePath": "rooms\\room_finalChallenge\\room_finalChallenge.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "623e9abe-f9b6-4766-821c-216f1568e7bd",
             "Value": {
                 "id": "71c8ba70-65ed-444e-8eca-62b11b6e9292",
