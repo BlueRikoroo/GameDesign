@@ -19,7 +19,7 @@ case 5:
 	room_goto(rm_level_1)
 	break
 case 7:
-	room_goto(JT_level)
+	room_goto(room_JT)
 	break
 case 8:
 	room_goto(room_finalChallenge)
