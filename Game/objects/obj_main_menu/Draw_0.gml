@@ -79,7 +79,8 @@ case Screen.levelSelect: #region
 		);
 	draw_set_font(ft_time);
 	
-	draw_surface(levelSelectSurface, 200, 350)
+	if surface_exists(levelSelectSurface)
+		draw_surface(levelSelectSurface, 200, 350)
 	
 	var xpos
 	for(var i = 0; i < totalLevels; i++) {
