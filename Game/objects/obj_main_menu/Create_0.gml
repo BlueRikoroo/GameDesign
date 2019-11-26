@@ -63,6 +63,9 @@ for(var i = 0; i < totalLevels; i++){
 
 ini_close()
 
+if obj_frame.debugMode
+	levelData[0,0] = true
+
 #endregion
 #region Needed variables
 
