@@ -1,3 +1,7 @@
+
+part_type_color1(pt, merge_color(c_green,c_red,min(1,length/maxLength)))
+part_emitter_burst(ps, pe, pt, 1)
+
 #region Make sure both ends of rope exist, update position of x and y
 
 if instance_exists(obj1){
