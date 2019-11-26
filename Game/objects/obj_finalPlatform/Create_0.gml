@@ -25,3 +25,6 @@ part_type_life(pt,10,30)
 part_type_speed(pt,2,5,0,0)
 part_type_direction(pt,270,270,0,0)
 part_type_alpha3(pt, 1, 0.75, 0)
+
+audio_stop_all()
+audio_play_sound(bgm_finalLevel,10,true)

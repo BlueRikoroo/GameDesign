@@ -9,6 +9,14 @@ if y != 1662{
 	if !activated and place_meeting(x+400, y-5, obj_player){
 		activated = true
 		vertical_speed = 1
+		
+		audio_stop_all()
+		audio_play_sound(bgm_finalBoss,10,true)
+		
+		obj_finalPortal.level = 1
+		
+		with(obj_finalRisingSpikes)
+			vspeed = 0
 	}
 	if y < 3974
 		vertical_speed = 2

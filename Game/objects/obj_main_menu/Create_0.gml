@@ -1,4 +1,3 @@
-/// @description 
 randomize()
 global.currentLevel = 0
 #region File Loading
