@@ -1,4 +1,7 @@
-
+if place_meeting(x,y,par_wall){
+	x = xprevious
+	y = yprevious
+}
 
 var maxRope = false
 for(var i = 0; i < array_length_1d(rope_obj); i++){
@@ -241,8 +244,8 @@ if instance_exists(attached_obj[0]) and instance_exists(rope_obj[0]){
 		if keyboard_check(c_jump) and (attached_obj[0].onGround or attached_obj[0].grabbing)
 		  and !place_meeting(x-1,y,par_wall) and !place_meeting(x+1,y,par_wall){
 			if rope_obj[0].maxLength > 150 and rope_obj[0].length + 10 > rope_obj[0].maxLength {
-				rope_obj[0].tempMaxReduction += ropeSpeed
-				rope_obj[0].maxLength -= ropeSpeed
+				rope_obj[0].tempMaxReduction += ropeSpeed*2
+				rope_obj[0].maxLength -= ropeSpeed*2
 				player_playAnimation(Anim.pullingSelfUpRope)
 			}
 		}else if rope_obj[0].tempMaxReduction > 0{
